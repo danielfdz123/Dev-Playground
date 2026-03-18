@@ -65,7 +65,6 @@ public class UserInput
         // Returns weight value
         return weight;
     }
-
     // Gets height of the user, depending on their choice (Imperial/Metric)
     public double obtainHeight(String bmiSystem) 
     {

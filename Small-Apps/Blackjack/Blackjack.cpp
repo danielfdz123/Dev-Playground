@@ -68,7 +68,7 @@ int main()
 
     while (true)
     {
-        std::cout << "Would you like to hit (h) or stay (s)? : ";
+        std::cout << "Would you like to hit (h) or stand (s)? : ";
         cin >> move;
 
         if (move == 'h')
