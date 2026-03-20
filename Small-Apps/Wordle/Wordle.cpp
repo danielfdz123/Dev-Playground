@@ -43,7 +43,7 @@ void Wordle::play()
 
 void Wordle::checkGuess(std::string guess)
 {
-    // Keeps prompting the user until a valid 5 letter word is entered
+    // Keeps prompting the user until a valid 5 letter word is entered (does not lose a life if invalid guess)
     while(guess.length() != 5)
     {
         std::cout << " <<< Invalid Guess: Not 5 letters! >>>" << std::endl;
