@@ -15,6 +15,7 @@ class Output
         // Output();
         static void displayResult(std::string guess, std::string answer);
         static void displayHistory(std::string guess, std::string answer);
+        static void victoryText(int tries);
 };
 
 #endif

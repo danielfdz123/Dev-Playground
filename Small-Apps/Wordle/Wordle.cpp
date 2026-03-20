@@ -7,14 +7,14 @@ Wordle::Wordle(std::string word)
 {
     // Sets up base game rules (Defines what the answer is, every run has 6 tries to guess it)
     answer = word;
-    tries = 6;
+    tries = 0;          // 6 max; defined in while loop
 }
 
 void Wordle::play()
 {
     std::string guess;
 
-    while (tries > 0)
+    while (tries != 6)          // Loops until the 6th try is used
     {
         // Prompts user to guess word
         std::cout << "Enter Guess: ";
@@ -30,13 +30,14 @@ void Wordle::play()
         if (guess == answer)
         {
             checkGuess(guess);
-            std::cout << "Congratulations, you win!!\n";
+            tries++;
+            Output::victoryText(tries);         // Calls function to determine what text is shown upon winning (like the real game)
             std::exit(0);
         }
 
         // If guess is wrong, player loses a life and is asked to guess again
         checkGuess(guess);
-        tries--;
+        tries++;
     }
     
     // If player loses the game, the answer is shown in red text

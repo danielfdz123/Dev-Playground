@@ -23,7 +23,7 @@ void Output::displayResult(std::string guess, std::string answer)
         // Letter is not apart of the answer word at all
         else 
         {
-            std::cout << guess[i] << " ";
+            std::cout << "\033[90m" << guess[i] << "\033[0m" << " ";
         }
     }
     std::cout << std::endl;
@@ -58,8 +58,29 @@ void Output::displayHistory(std::string guess, std::string answer)
         std::cout << "<<< Throw-Aways: ";
         for (char throwaways : gray) 
         {
-            std::cout << throwaways << " ";
+            std::cout << "\033[90m" << throwaways << "\033[0m" << " ";
         }
     }
     std::cout << ">>>" << std::endl;
+}
+
+void Output::victoryText(int tries)
+{
+    //This function prints out the victory text depending on the amount of tries one takes
+    if(tries <= 3)
+    {
+        std::cout << "Genius!" << std::endl;
+    }
+    else if (tries == 4)
+    {
+        std::cout << "Magnificent!" << std::endl;
+    }
+    else if (tries == 5)
+    {
+        std::cout << "Impressive!" << std::endl;
+    }
+    else
+    {
+        std::cout << "Great!" << std::endl;
+    }
 }
