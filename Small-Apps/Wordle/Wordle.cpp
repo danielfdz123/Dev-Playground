@@ -29,6 +29,7 @@ void Wordle::play()
         // Sees if the guess matches the answer
         if (guess == answer)
         {
+            checkGuess(guess);
             std::cout << "Congratulations, you win!!\n";
             return;
         }
