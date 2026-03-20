@@ -31,15 +31,17 @@ void Wordle::play()
         {
             checkGuess(guess);
             std::cout << "Congratulations, you win!!\n";
-            return;
+            std::exit(0);
         }
 
         // If guess is wrong, player loses a life and is asked to guess again
         checkGuess(guess);
         tries--;
     }
-
-    std::cout << "You lose! Word was: " << answer << std::endl;
+    
+    // If player loses the game, the answer is shown in red text
+    std::cout << "You lose! Word was: " << "\033[31m" << answer << "\033[0m"<< std::endl;
+    std::exit(0);
 }
 
 void Wordle::checkGuess(std::string guess)
@@ -47,7 +49,7 @@ void Wordle::checkGuess(std::string guess)
     // Keeps prompting the user until a valid 5 letter word is entered (does not lose a life if invalid guess)
     while(guess.length() != 5)
     {
-        std::cout << " <<< Invalid Guess: Not 5 letters! >>>" << std::endl;
+        std::cout << "<<< Invalid Guess: Not 5 letters! >>>" << std::endl;
         play();
     }
     Output::displayResult(guess, answer);
