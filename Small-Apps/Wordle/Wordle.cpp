@@ -20,6 +20,12 @@ void Wordle::play()
         std::cout << "Enter Guess: ";
         std::cin >> guess;
 
+        // Prevents case-sensitive issues ('a' not recognizing 'A')
+        for (int i = 0; i < guess.length(); i++)
+        {
+            guess[i] = std::tolower(guess[i]);
+        }
+
         // Sees if the guess matches the answer
         if (guess == answer)
         {
@@ -37,5 +43,11 @@ void Wordle::play()
 
 void Wordle::checkGuess(std::string guess)
 {
+    // Keeps prompting the user until a valid 5 letter word is entered
+    while(guess.length() != 5)
+    {
+        std::cout << " <<< Invalid Guess: Not 5 letters! >>>" << std::endl;
+        play();
+    }
     Output::displayResult(guess, answer);
 }
