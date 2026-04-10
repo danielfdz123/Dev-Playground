@@ -1,53 +1,57 @@
 //All of these stops are listed in the southbound direction
+export const A = [
+    "Inwood-207 St",
+    "Dyckman St",
+    "190 St",
+    "181 St",
+    "175 St",
+    "168 St",
+    "145 St",
+    "125 St",
+    "59 St- Columbus Circle",
+    "42 St- Port Authority",
+    "34 St- Penn Station",
+    "14 St",
+    "W 4 St- Washington Sq",
+    "Canal St",
+    "Chambers St",
+    "Fulton St",
+    "High St",
+    "Jay St-Metrotech",
+    "Hoyt-Schermerhorn",
+    "Nostrand Av",
+    "Utica Av",
+    "Broadway Junction",
+    "Euclid Av",
+    "Grant Av",
+    "80 St",
+    "88 St",
+    "Rockaway Blvd" 
+];
+
+export const rockaway_A = [
+    "Aqueduct-N Conduit Av",
+    "Howard Beach- JFK Airport",
+    "Broad Channel",
+    "Beach 67 St",
+    "Beach 60 St",
+    "Beach 44 St",
+    "Beach 36 St",
+    "Beach 25 St",
+    "Far Rockaway- Mott Av"
+];
+
+export const lefferts_A = [
+    "104 St",
+    "111 St",
+    "Ozone Pk-Lefferts Boulevard" 
+];
 
 export const SubwayLines = {
-    A: [
-        "Inwood-207 St",
-        "Dyckman St",
-        "190 St",
-        "181 St",
-        "175 St",
-        "168 St",
-        "145 St",
-        "125 St",
-        "59 St- Colombus Circle",
-        "42 St- Port Authority",
-        "34 St- Penn Station",
-        "14 St",
-        "W 4 St- Washington Sq",
-        "Canal St",
-        "Chambers St",
-        "Fulton St",
-        "High St",
-        "Jay St-Metrotech",
-        "Hoyt-Schermerhorn",
-        "Nostrand Av",
-        "Utica Av",
-        "Broadway Junction",
-        "Euclid Av",
-        "Grant Av",
-        "80 St",
-        "88 St",
-        "Rockaway Blvd" 
-    ],
 
-    "A ~ Lefferts": [
-        "104 St",
-        "111 St",
-        "Ozone Pk-Lefferts Boulevard" 
-    ],
-
-    "A ~ Rockaway": [
-        "Aqueduct-N Conduit Av",
-        "Howard Beach- JFK Airport",
-        "Broad Channel",
-        "Beach 67 St",
-        "Beach 60 St",
-        "Beach 44 St",
-        "Beach 36 St",
-        "Beach 25 St",
-        "Far Rockaway- Mott Av"
-    ],
+    // Merging the main A line array into each of their corresponding branches. (A train to Lefferts & A train to Far Rockaway)
+    "A ~ Lefferts Blvd" : [...A, ...lefferts_A],
+    "A ~ Far Rockaway": [...A, ...rockaway_A],
 
     B: [
         "Bedford Park Blvd",
@@ -70,7 +74,7 @@ export const SubwayLines = {
         "86 St",
         "81 St- Museum of Natural History",
         "72 St",
-        "59 St- Colombus Circle",
+        "59 St- Columbus Circle",
         "7 Av",
         "Rockefeller Center",
         "42 St- Bryant Park",
@@ -103,7 +107,7 @@ export const SubwayLines = {
         "86 St",
         "81 St- Museum of Natural History",
         "72 St",
-        "59 St- Colombus Circle",
+        "59 St- Columbus Circle",
         "50 St",
         "42 St- Port Authority",
         "34 St- Penn Station",
@@ -144,7 +148,7 @@ export const SubwayLines = {
         "155 St",
         "145 St",
         "125 St",
-        "59 St- Colombus Circle",
+        "59 St- Columbus Circle",
         "7 Av",
         "Rockefeller Center",
         "42 St- Bryant Park",
@@ -566,7 +570,7 @@ export const SubwayLines = {
         "79 St",
         "72 St",
         "66 St- Lincoln Center",
-        "59 St- Colombus Circle",
+        "59 St- Columbus Circle",
         "50 St",
         "Times Sq-42 St",
         "34 St- Penn Station",

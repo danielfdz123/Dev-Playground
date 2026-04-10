@@ -1,20 +1,34 @@
 import { useState } from "react";
-import { SubwayLines } from "../Data/SubwayLines";
+import { SubwayLines, A } from "../Data/SubwayLines";
 import "./StationSearch.css"
-
 
 // This function gets all the stops for each subway line and puhses them into an array
 function getAllStations()
 {
     // Sets up empty array
     const subwayStations = [];
+
+    // Keeps tracks of all stations to avoid duplicates in the search feature
+    const uniqueStations = [];    
+
     for(const line in SubwayLines)
     {
-        const stations = SubwayLines[line]
+        const stations = SubwayLines[line];
         for(const station of stations)
         {
-            // Sets display to show something like so for all lines/stops -- '(F) Rockefeller Center'
-            subwayStations.push({line, stop: station, display: `(${line}) ${station}`,});
+            // Removing duplicated A train stops from displaying in thge search engine
+            let displayedLine = line;
+            if((line === "A ~ Lefferts Blvd" || line === "A ~ Far Rockaway") && A.includes(station))
+            {
+                displayedLine = "A";
+            }
+            const display = `(${displayedLine}) ${station}`;
+
+            if(!uniqueStations.includes(display))
+            {
+                subwayStations.push({line: displayedLine, stop: station, display: display})
+                uniqueStations.push(display);
+            }
         }
     }
     return subwayStations;
