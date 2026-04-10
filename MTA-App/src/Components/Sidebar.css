@@ -1,0 +1,53 @@
+.sidebarDiv {
+    /* Positioning */
+    position: absolute;
+    top: 1vw;
+    left: 1vw;
+    bottom: 1vw;
+    padding: 0.5vw;
+    /* padding-top: 0.3vw;
+    padding-left: 0.6vw;
+    padding-right: 0.6vw; */
+
+    /* Sizing */
+    max-height: 96vh;
+    min-width: 2vw;
+    max-width: 18vw;
+
+    /* Other */
+    overflow-y: auto;
+    background: rgb(236, 236, 236);
+    border-radius: 5px;
+}
+
+.topHalf {
+    border-radius: 5px;
+    border: 2px solid #ada2a2;
+}
+
+.introDiv {
+    padding: 0.25vw;
+}
+
+.headerTextDiv {
+    padding-left: 0.5vw;
+    padding-right: 0.5vw;
+    border-bottom: 2px solid #000000;
+}
+
+.introText {
+    font-weight: bold;
+    font-size: 2.2vh;
+}
+
+.instDiv {
+    padding: 0.4vw;
+    color: rgb(92, 92, 92);
+    font-size: 1.4vh;
+}
+
+.searchStationDiv {
+    padding-left: 0.5vw;
+    padding-right: 0.5vw;
+    padding-bottom: 0.5vw;
+}
