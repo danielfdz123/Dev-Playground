@@ -2,35 +2,58 @@ import { useState } from "react";
 import { SubwayLines, A } from "../Data/SubwayLines";
 import "./StationSearch.css"
 
+
 // This function gets all the stops for each subway line and puhses them into an array
 function getAllStations()
 {
-    // Sets up empty array
-    const subwayStations = [];
-
-    // Keeps tracks of all stations to avoid duplicates in the search feature
-    const uniqueStations = [];    
+    // Sets up empty of all stations with their transfers
+    const stationGroups = {};
 
     for(const line in SubwayLines)
     {
         const stations = SubwayLines[line];
         for(const station of stations)
         {
+            const stationName = station.name;
+            const stationId = station.id;
+
             // Removing duplicated A train stops from displaying in thge search engine
             let displayedLine = line;
-            if((line === "A ~ Lefferts Blvd" || line === "A ~ Far Rockaway") && A.includes(station))
+            if((line === "A ~ Lefferts Blvd" || line === "A ~ Far Rockaway") && A.some(aStop => aStop.id === stationId))
             {
                 displayedLine = "A";
             }
-            const display = `(${displayedLine}) ${station}`;
 
-            if(!uniqueStations.includes(display))
+            // Grouping subway stations together so we dont see Penn Station various times, but now just once
+            const groupId = stationId;
+            if(!stationGroups[groupId])
             {
-                subwayStations.push({line: displayedLine, stop: station, display: display})
-                uniqueStations.push(display);
+                stationGroups[groupId] = {
+                    stops: [],
+                    lines: [],
+                };
+            }
+
+            // Creates a group and adds subway line & station name to each, avoiding duplicates for all
+            if (!stationGroups[groupId].stops.includes(stationName))
+            {
+                stationGroups[groupId].stops.push(stationName);
+            }
+
+            if (!stationGroups[groupId].lines.includes(displayedLine))
+            {
+                stationGroups[groupId].lines.push(displayedLine);
             }
         }
     }
+
+    // Sets up display and output for stations with one or more transfer points
+    const subwayStations = Object.values(stationGroups).map((group) => ({
+        stop: group.stops[0],
+        stops: group.stops,
+        lines: group.lines,
+        display: `(${group.lines.join(", ")}) ${group.stops.join(" / ")}`
+    }));
     return subwayStations;
 }
 
@@ -59,10 +82,19 @@ function getMatchingStations(userInput, stations)
     const matchText = [];
     for(const station of stations)
     {
-        const stationName = prepareText(station.stop);
-        if(stationName.includes(searchText))
+        let matchFound = false;
+        for(const stopName of station.stops)
         {
-            matchText.push(station)
+            const displayStation = prepareText(stopName);
+            if(displayStation.includes(searchText))
+            {
+                matchFound = true;
+                break;
+            }
+        }
+        if(matchFound)
+        {
+            matchText.push(station);
         }
     }
     return matchText;
