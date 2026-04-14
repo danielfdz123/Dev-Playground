@@ -21,3 +21,18 @@
   font-weight: 600;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
 }
+
+.stationMarker {
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  border: 2px solid black;
+}
+
+.ACE {
+  background-color: rgb(54, 134, 255);
+}
+
+.BDFM {
+  background-color: #f3c090;
+}

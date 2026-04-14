@@ -1,0 +1,45 @@
+.toggleDiv {
+    /* Positioning */
+    position: absolute;
+    top: 1vw;
+    right: 1vw;
+    z-index: 20;
+    padding: 0.5vw;
+
+    /* Other stuff */
+    background: white;
+    border-radius: 15px;
+}
+
+/* Sets up horizontal content */
+.row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.lineColor {
+    width: 1vw;
+    height: 1vw;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.subwayLine {
+    font-size: 14px;
+}
+
+/* Bolds text when toggled */
+.activeText {
+    font-weight: bold;
+}
+
+/* 8th Ave */
+.blue {
+    background-color: #0039A6;
+}
+
+/* 6th Ave */
+.orange {
+    background-color: #ff6319;
+}
