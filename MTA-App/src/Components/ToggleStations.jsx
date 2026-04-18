@@ -18,6 +18,46 @@ export default function ToggleStations({ activeLine, setActiveLine }) {
         setActiveLine(lines[nextIndex]);
     }
 
+    function broadwayLines() 
+    {
+        const lines = ["ALL", "N", "Q", "R", "W"];
+        const currentIndex = lines.indexOf(activeLine);
+        const nextIndex = (currentIndex + 1) % lines.length;
+        setActiveLine(lines[nextIndex]);
+    }
+
+    function shuttleLines() 
+    {
+        const lines = ["ALL", "S"];
+        const currentIndex = lines.indexOf(activeLine);
+        const nextIndex = (currentIndex + 1) % lines.length;
+        setActiveLine(lines[nextIndex]);
+    }
+
+    function nassauLines() 
+    {
+        const lines = ["ALL", "J", "Z"];
+        const currentIndex = lines.indexOf(activeLine);
+        const nextIndex = (currentIndex + 1) % lines.length;
+        setActiveLine(lines[nextIndex]);
+    }
+
+    function crosstown() 
+    {
+        const lines = ["ALL", "G"];
+        const currentIndex = lines.indexOf(activeLine);
+        const nextIndex = (currentIndex + 1) % lines.length;
+        setActiveLine(lines[nextIndex]);
+    }
+
+    function canarsie() 
+    {
+        const lines = ["ALL", "L"];
+        const currentIndex = lines.indexOf(activeLine);
+        const nextIndex = (currentIndex + 1) % lines.length;
+        setActiveLine(lines[nextIndex]);
+    }
+
     return (
         <div className = "toggleDiv">
 
@@ -38,8 +78,52 @@ export default function ToggleStations({ activeLine, setActiveLine }) {
                 <span className="subwayLine">
                     <span className={activeLine === "B" || activeLine === "ALL" ? "activeText" : ""}>B</span>/{""}
                     <span className={activeLine === "D" || activeLine === "ALL" ? "activeText" : ""}>D</span>/{""}
-                    {/* <span className={activeLine === "F" || activeLine === "ALL" ? "activeText" : ""}>F</span>/{""}
-                    <span className={activeLine === "M" || activeLine === "ALL" ? "activeText" : ""}>M</span> */}
+                    <span className={activeLine === "F" || activeLine === "ALL" ? "activeText" : ""}>F</span>/{""}
+                    <span className={activeLine === "M" || activeLine === "ALL" ? "activeText" : ""}>M</span>
+                </span>
+            </div>
+
+            {/* N/Q/R/W */}
+            <div className="row">
+                <button className="lineColor yellow" onClick={broadwayLines} />
+                <span className="subwayLine">
+                    <span className={activeLine === "N" || activeLine === "ALL" ? "activeText" : ""}>N</span>/{""}
+                    <span className={activeLine === "Q" || activeLine === "ALL" ? "activeText" : ""}>Q</span>/{""}
+                    <span className={activeLine === "R" || activeLine === "ALL" ? "activeText" : ""}>R</span>/{""}
+                    <span className={activeLine === "W" || activeLine === "ALL" ? "activeText" : ""}>W</span>
+                </span>
+            </div>
+
+            {/* J/Z */}
+            <div className="row">
+                <button className="lineColor brown" onClick={nassauLines} />
+                <span className="subwayLine">
+                    <span className={activeLine === "J" || activeLine === "ALL" ? "activeText" : ""}>J</span>/{""}
+                    <span className={activeLine === "Z" || activeLine === "ALL" ? "activeText" : ""}>Z</span>{""}
+                </span>
+            </div>
+
+            {/* G */}
+            <div className="row">
+                <button className="lineColor light-green" onClick={crosstown} />
+                <span className="subwayLine">
+                    <span className={activeLine === "G" || activeLine === "ALL" ? "activeText" : ""}>G</span>{""}
+                </span>
+            </div>
+
+            {/* L */}
+            <div className="row">
+                <button className="lineColor grey" onClick={canarsie} />
+                <span className="subwayLine">
+                    <span className={activeLine === "L" || activeLine === "ALL" ? "activeText" : ""}>L</span>{""}
+                </span>
+            </div>
+
+            {/* S */}
+            <div className="row">
+                <button className="lineColor grey" onClick={shuttleLines} />
+                <span className="subwayLine">
+                    <span className={activeLine === "S" || activeLine === "ALL" ? "activeText" : ""}>S</span>{""}
                 </span>
             </div>
         </div>

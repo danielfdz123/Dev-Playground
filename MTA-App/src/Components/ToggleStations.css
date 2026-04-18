@@ -43,3 +43,23 @@
 .orange {
     background-color: #ff6319;
 }
+
+/* Broadway */
+.yellow {
+    background-color: #FCCC0A;
+}
+
+/* Nassau */
+.brown {
+    background-color: #8E5C33;
+}
+
+/* Crosstown */
+.light-green {
+    background-color: #6CBE45;
+}
+
+/* Shuttles, Canarsie */
+.grey {
+    background-color: #808183;
+}
