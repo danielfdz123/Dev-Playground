@@ -58,8 +58,26 @@ export default function ToggleStations({ activeLine, setActiveLine }) {
         setActiveLine(lines[nextIndex]);
     }
 
+    function seventhAveLines() 
+    {
+        const lines = ["ALL", "1", "2", "3"];
+        const currentIndex = lines.indexOf(activeLine);
+        const nextIndex = (currentIndex + 1) % lines.length;
+        setActiveLine(lines[nextIndex]);
+    }
+
     return (
         <div className = "toggleDiv">
+
+            {/* 1/2/3 lines */}
+            <div className="row">
+                <button className="lineColor red" onClick={seventhAveLines} />
+                <span className="subwayLine">
+                    <span className={activeLine === "1" || activeLine === "ALL" ? "activeText" : ""}>1</span>/{""}
+                    <span className={activeLine === "2" || activeLine === "ALL" ? "activeText" : ""}>2</span>/{""}
+                    <span className={activeLine === "3" || activeLine === "ALL" ? "activeText" : ""}>3</span>{""}
+                </span>
+            </div>
 
             {/* A/C/E lines */}
             <div className = "row">

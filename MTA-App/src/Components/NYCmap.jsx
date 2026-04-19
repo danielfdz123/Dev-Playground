@@ -19,8 +19,9 @@ import { W_Path } from "../Data/W_Path";
 import { S_Path } from "../Data/S_Path";
 import { J_Path } from "../Data/J_Path";
 import { Z_Path } from "../Data/Z_Path";
-
-
+import { Path_1 } from "..//Data/1_Path";
+import { Path_2 } from "..//Data/2_Path";
+import { Path_3 } from "..//Data/3_Path";
 
 import "./NYCmap.css";
 import ToggleStations from "../Components/ToggleStations";
@@ -47,6 +48,9 @@ export default function NYCmap() {
 	const W_Line = (W_Path.W || []).map(([lat, lon]) => [lon, lat]);
 	const J_Line = (J_Path.J || []).map(([lat, lon]) => [lon, lat]);
 	const Z_Line = (Z_Path.Z || []).map(([lat, lon]) => [lon, lat]);
+	const Line_1 = (Path_1["1"] || []).map(([lat, lon]) => [lon, lat]);
+	const Line_2 = (Path_2["2"] || []).map(([lat, lon]) => [lon, lat]);
+	const Line_3 = (Path_3["3"] || []).map(([lat, lon]) => [lon, lat]);
 
 	const S_42ndStreetLine = (S_Path.S_42ndStreet || []).map(([lat, lon]) => [lon, lat]);
 	const S_FranklinAvLine = (S_Path.S_FranklinAv || []).map(([lat, lon]) => [lon, lat]);
@@ -67,6 +71,9 @@ export default function NYCmap() {
 	const W_stations = SubwayLines.W || [];
 	const J_stations = SubwayLines.J || [];
 	const Z_stations = SubwayLines.Z || [];
+	const Stations_1 = SubwayLines["1"] || [];
+	const Stations_2 = SubwayLines["2"] || [];
+	const Stations_3 = SubwayLines["3"] || [];
 
   	return (
     	<div className = "nyc-map-wrapper">
@@ -94,7 +101,6 @@ export default function NYCmap() {
         		<MapRoute id = "b-line" coordinates = {B_Line} color={"#FF6319"} width = {activeLine === "ALL" ? 4: 6} opacity = {1} />
 			)}
 
-
         	{/* C route */}
 			{(activeLine === "ALL" || activeLine === "C") && (
         		<MapRoute id = "c-line" coordinates = {C_Line} color={"#0039A6"} width = {activeLine === "ALL" ? 4: 6} opacity = {1} />
@@ -116,7 +122,7 @@ export default function NYCmap() {
 			)}
 
 			{/* G route */}
-			{(activeLine === "ALL" || activeLine === "ALL" || activeLine === "G") && (
+			{(activeLine === "ALL" || activeLine === "G") && (
         		<MapRoute id = "g-line" coordinates = {G_Line} color = {"#6CBE45"} width = {activeLine === "ALL" ? 4: 6} opacity = {1} />
 			)}
 
@@ -159,7 +165,21 @@ export default function NYCmap() {
 			{(activeLine === "ALL" || activeLine === "Z") && (
         		<MapRoute id = "z-line" coordinates = {Z_Line} color = {"#8E5C33"} width = {activeLine === "ALL" ? 4: 6} opacity = {1} />
 			)}
+
+			{/* 1 route */}
+			{(activeLine === "ALL" || activeLine === "1") && (
+        		<MapRoute id = "1-line" coordinates = {Line_1} color = {"#D82233"} width = {activeLine === "ALL" ? 4: 6} opacity = {1} />
+			)}
+
+			{/* 2 route */}
+			{(activeLine === "ALL" || activeLine === "2") && (
+        		<MapRoute id = "2-line" coordinates = {Line_2} color = {"#D82233"} width = {activeLine === "ALL" ? 4: 6} opacity = {1} />
+			)}
 			
+			{/* 3 route */}
+			{(activeLine === "ALL" || activeLine === "3") && (
+        		<MapRoute id = "3-line" coordinates = {Line_3} color = {"#D82233"} width = {activeLine === "ALL" ? 4: 6} opacity = {1} />
+			)}
 
 			{/* S routes */}
 			{(activeLine === "ALL" || activeLine === "S") && (
@@ -370,6 +390,42 @@ export default function NYCmap() {
           			<MapMarker key = {`Z-${station.id}`} longitude={station.lon} latitude={station.lat}>
             			<MarkerContent>
             		  		<div className = "stationMarker JZ" />
+            			</MarkerContent>
+            			<MarkerTooltip> {station.name} </MarkerTooltip>
+          			</MapMarker>
+        		))
+			}
+
+			{/* 1 station */}
+			{(activeLine === "1") &&
+        		Stations_1.map((station) => (
+          			<MapMarker key = {`1-${station.id}`} longitude={station.lon} latitude={station.lat}>
+            			<MarkerContent>
+            		  		<div className = "stationMarker seventhAve" />
+            			</MarkerContent>
+            			<MarkerTooltip> {station.name} </MarkerTooltip>
+          			</MapMarker>
+        		))
+			}
+
+			{/* 2 stations */}
+			{(activeLine === "2") &&
+        		Stations_2.map((station) => (
+          			<MapMarker key = {`2-${station.id}`} longitude={station.lon} latitude={station.lat}>
+            			<MarkerContent>
+            		  		<div className = "stationMarker seventhAve" />
+            			</MarkerContent>
+            			<MarkerTooltip> {station.name} </MarkerTooltip>
+          			</MapMarker>
+        		))
+			}
+
+			{/* 3 stations */}
+			{(activeLine === "3") &&
+        		Stations_3.map((station) => (
+          			<MapMarker key = {`3-${station.id}`} longitude={station.lon} latitude={station.lat}>
+            			<MarkerContent>
+            		  		<div className = "stationMarker seventhAve" />
             			</MarkerContent>
             			<MarkerTooltip> {station.name} </MarkerTooltip>
           			</MapMarker>
