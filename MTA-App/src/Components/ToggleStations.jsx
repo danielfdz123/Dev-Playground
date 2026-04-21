@@ -4,7 +4,7 @@ export default function ToggleStations({ activeLine, setActiveLine }) {
 
     function eighthAveLines() 
     {
-        const lines = ["ALL", "A", "C", "E"];
+        const lines = ["A", "C", "E", "ALL"];
         const currentIndex = lines.indexOf(activeLine);
         const nextIndex = (currentIndex + 1) % lines.length;
         setActiveLine(lines[nextIndex]);
@@ -12,7 +12,7 @@ export default function ToggleStations({ activeLine, setActiveLine }) {
 
     function sixthAveLines() 
     {
-        const lines = ["ALL", "B", "D", "F", "M"];
+        const lines = ["B", "D", "F", "M", "ALL"];
         const currentIndex = lines.indexOf(activeLine);
         const nextIndex = (currentIndex + 1) % lines.length;
         setActiveLine(lines[nextIndex]);
@@ -20,7 +20,7 @@ export default function ToggleStations({ activeLine, setActiveLine }) {
 
     function broadwayLines() 
     {
-        const lines = ["ALL", "N", "Q", "R", "W"];
+        const lines = ["N", "Q", "R", "W", "ALL"];
         const currentIndex = lines.indexOf(activeLine);
         const nextIndex = (currentIndex + 1) % lines.length;
         setActiveLine(lines[nextIndex]);
@@ -28,7 +28,7 @@ export default function ToggleStations({ activeLine, setActiveLine }) {
 
     function shuttleLines() 
     {
-        const lines = ["ALL", "S"];
+        const lines = ["S", "ALL"];
         const currentIndex = lines.indexOf(activeLine);
         const nextIndex = (currentIndex + 1) % lines.length;
         setActiveLine(lines[nextIndex]);
@@ -36,7 +36,7 @@ export default function ToggleStations({ activeLine, setActiveLine }) {
 
     function nassauLines() 
     {
-        const lines = ["ALL", "J", "Z"];
+        const lines = ["J", "Z", "ALL"];
         const currentIndex = lines.indexOf(activeLine);
         const nextIndex = (currentIndex + 1) % lines.length;
         setActiveLine(lines[nextIndex]);
@@ -44,7 +44,7 @@ export default function ToggleStations({ activeLine, setActiveLine }) {
 
     function crosstown() 
     {
-        const lines = ["ALL", "G"];
+        const lines = ["G", "ALL"];
         const currentIndex = lines.indexOf(activeLine);
         const nextIndex = (currentIndex + 1) % lines.length;
         setActiveLine(lines[nextIndex]);
@@ -52,7 +52,7 @@ export default function ToggleStations({ activeLine, setActiveLine }) {
 
     function canarsie() 
     {
-        const lines = ["ALL", "L"];
+        const lines = ["L", "ALL"];
         const currentIndex = lines.indexOf(activeLine);
         const nextIndex = (currentIndex + 1) % lines.length;
         setActiveLine(lines[nextIndex]);
@@ -60,7 +60,15 @@ export default function ToggleStations({ activeLine, setActiveLine }) {
 
     function seventhAveLines() 
     {
-        const lines = ["ALL", "1", "2", "3"];
+        const lines = ["1", "2", "3", "ALL"];
+        const currentIndex = lines.indexOf(activeLine);
+        const nextIndex = (currentIndex + 1) % lines.length;
+        setActiveLine(lines[nextIndex]);
+    }
+
+     function lexingtonLines() 
+    {
+        const lines = ["4", "5", "6", "ALL"];
         const currentIndex = lines.indexOf(activeLine);
         const nextIndex = (currentIndex + 1) % lines.length;
         setActiveLine(lines[nextIndex]);
@@ -76,6 +84,16 @@ export default function ToggleStations({ activeLine, setActiveLine }) {
                     <span className={activeLine === "1" || activeLine === "ALL" ? "activeText" : ""}>1</span>/{""}
                     <span className={activeLine === "2" || activeLine === "ALL" ? "activeText" : ""}>2</span>/{""}
                     <span className={activeLine === "3" || activeLine === "ALL" ? "activeText" : ""}>3</span>{""}
+                </span>
+            </div>
+
+            {/* 4/5/6 lines */}
+            <div className="row">
+                <button className="lineColor green" onClick={lexingtonLines} />
+                <span className="subwayLine">
+                    <span className={activeLine === "4" || activeLine === "ALL" ? "activeText" : ""}>4</span>/{""}
+                    <span className={activeLine === "5" || activeLine === "ALL" ? "activeText" : ""}>5</span>/{""}
+                    <span className={activeLine === "6" || activeLine === "ALL" ? "activeText" : ""}>6</span>{""}
                 </span>
             </div>
 
