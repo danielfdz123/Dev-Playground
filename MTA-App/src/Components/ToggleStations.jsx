@@ -66,9 +66,17 @@ export default function ToggleStations({ activeLine, setActiveLine }) {
         setActiveLine(lines[nextIndex]);
     }
 
-     function lexingtonLines() 
+    function lexingtonLines() 
     {
         const lines = ["4", "5", "6", "ALL"];
+        const currentIndex = lines.indexOf(activeLine);
+        const nextIndex = (currentIndex + 1) % lines.length;
+        setActiveLine(lines[nextIndex]);
+    }
+
+    function flushing() 
+    {
+        const lines = ["7", "ALL"];
         const currentIndex = lines.indexOf(activeLine);
         const nextIndex = (currentIndex + 1) % lines.length;
         setActiveLine(lines[nextIndex]);
@@ -94,6 +102,14 @@ export default function ToggleStations({ activeLine, setActiveLine }) {
                     <span className={activeLine === "4" || activeLine === "ALL" ? "activeText" : ""}>4</span>/{""}
                     <span className={activeLine === "5" || activeLine === "ALL" ? "activeText" : ""}>5</span>/{""}
                     <span className={activeLine === "6" || activeLine === "ALL" ? "activeText" : ""}>6</span>{""}
+                </span>
+            </div>
+
+            {/* 7 */}
+            <div className="row">
+                <button className="lineColor purple" onClick={flushing} />
+                <span className="subwayLine">
+                    <span className={activeLine === "7" || activeLine === "ALL" ? "activeText" : ""}>7</span>{""}
                 </span>
             </div>
 

@@ -37,6 +37,10 @@
   background-color: rgb(231, 255, 220);
 }
 
+.flushing {
+  background-color: white;
+}
+
 .ACE {
   background-color: rgb(54, 134, 255);
 }
