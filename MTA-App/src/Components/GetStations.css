@@ -1,0 +1,42 @@
+.stationMarker {
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  border: 2px solid black;
+}
+
+.seventhAve {
+  background-color: #f5bbc0;
+}
+
+.lexingtonAve {
+  background-color: rgb(231, 255, 220);
+}
+
+.flushing {
+  background-color: rgb(255, 152, 238);
+}
+
+.ACE {
+  background-color: rgb(54, 134, 255);
+}
+
+.BDFM {
+  background-color: #f3c090;
+}
+
+.NQRW {
+  background-color: #fff8d3;
+}
+
+.JZ {
+  background-color: rgb(228, 199, 175);
+}
+
+.G {
+  background-color: #ecffe3;
+}
+
+.L, .S {
+  background-color: #c5c5c5;
+}

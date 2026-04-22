@@ -1,6 +1,6 @@
-import "./ToggleStations.css";
+import "./FilterRoute.css";
 
-export default function ToggleStations({ activeLine, setActiveLine }) {
+export default function FilterRoute({ activeLine, setActiveLine }) {
 
     function eighthAveLines() 
     {
