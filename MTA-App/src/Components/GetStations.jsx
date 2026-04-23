@@ -36,6 +36,16 @@ export default function GetStations({
 
     const toggled = (line) => activeLine === line || showAllStationsAtZoom;
 
+	function getMarkerClass(routeColor) 
+	{
+    if (activeLine === "ALL") 
+	{
+        return "stationMarker ALL";
+    }
+
+    return `stationMarker ${routeColor}`;
+}
+
     return (
         <>
             {/* A stations */}
@@ -43,7 +53,7 @@ export default function GetStations({
                 A.map((station) => (
                     <MapMarker key = {`A-${station.id}`} longitude={station.lon} latitude={station.lat}>
                         <MarkerContent>
-                            <div className = "stationMarker ACE" />
+                            <div className = {getMarkerClass("ACE")} />
                         </MarkerContent>
                         <MarkerTooltip> (A) {station.name}</MarkerTooltip>
                     </MapMarker>
@@ -55,7 +65,7 @@ export default function GetStations({
                 rockaway_A.map((station) => (
                     <MapMarker key = {`A-rockaway-${station.id}`} longitude={station.lon} latitude={station.lat}>
             			<MarkerContent>
-            	  			<div className = "stationMarker ACE" />
+            	  			<div className = {getMarkerClass("ACE")} />
             			</MarkerContent>
             			<MarkerTooltip> (A) {station.name} </MarkerTooltip>
           			</MapMarker>
@@ -67,7 +77,7 @@ export default function GetStations({
                 lefferts_A.map((station) => (
           			<MapMarker key = {`A-lefferts-${station.id}`} longitude={station.lon} latitude={station.lat}>
             			<MarkerContent>
-            	  			<div className = "stationMarker ACE" />
+            	  			<div className = {getMarkerClass("ACE")} />
             			</MarkerContent>
             			<MarkerTooltip> (A) {station.name} </MarkerTooltip>
           			</MapMarker>
@@ -79,7 +89,7 @@ export default function GetStations({
         		B_stations.map((station) => (
           			<MapMarker key = {`B-${station.id}`} longitude={station.lon} latitude={station.lat}>
             			<MarkerContent>
-            	  			<div className = "stationMarker BDFM" />
+            	  			<div className = {getMarkerClass("BDFM")} />
             			</MarkerContent>
             			<MarkerTooltip> (B) {station.name} </MarkerTooltip>
           			</MapMarker>
@@ -91,7 +101,7 @@ export default function GetStations({
         		C_stations.map((station) => (
           			<MapMarker key = {`C-${station.id}`} longitude={station.lon} latitude={station.lat}>
             			<MarkerContent>
-            	  			<div className = "stationMarker ACE" />
+            	  			<div className = {getMarkerClass("ACE")} />
             			</MarkerContent>
             			<MarkerTooltip> (C) {station.name} </MarkerTooltip>
           			</MapMarker>
@@ -103,7 +113,7 @@ export default function GetStations({
         		D_stations.map((station) => (
           			<MapMarker key = {`D-${station.id}`} longitude={station.lon} latitude={station.lat}>
             			<MarkerContent>
-            	  			<div className = "stationMarker BDFM" />
+            	  			<div className = {getMarkerClass("BDFM")} />
             			</MarkerContent>
             			<MarkerTooltip> (D) {station.name} </MarkerTooltip>
           			</MapMarker>
@@ -115,7 +125,7 @@ export default function GetStations({
         		E_stations.map((station) => (
           			<MapMarker key = {`E-${station.id}`} longitude={station.lon} latitude={station.lat}>
             			<MarkerContent>
-            		  		<div className = "stationMarker ACE" />
+            		  		<div className = {getMarkerClass("ACE")} />
             			</MarkerContent>
             			<MarkerTooltip> (E) {station.name} </MarkerTooltip>
           			</MapMarker>
@@ -127,7 +137,7 @@ export default function GetStations({
         		F_stations.map((station) => (
           			<MapMarker key = {`F-${station.id}`} longitude={station.lon} latitude={station.lat}>
             			<MarkerContent>
-            		  		<div className = "stationMarker BDFM" />
+            		  		<div className = {getMarkerClass("BDFM")} />
             			</MarkerContent>
             			<MarkerTooltip> (F) {station.name} </MarkerTooltip>
           			</MapMarker>
@@ -139,7 +149,7 @@ export default function GetStations({
         		G_stations.map((station) => (
           			<MapMarker key = {`G-${station.id}`} longitude={station.lon} latitude={station.lat}>
             			<MarkerContent>
-            		  		<div className = "stationMarker G" />
+            		  		<div className = {getMarkerClass("G")} />
             			</MarkerContent>
             			<MarkerTooltip> (G) {station.name} </MarkerTooltip>
           			</MapMarker>
@@ -151,7 +161,7 @@ export default function GetStations({
         		L_stations.map((station) => (
           			<MapMarker key = {`L-${station.id}`} longitude={station.lon} latitude={station.lat}>
             			<MarkerContent>
-            		  		<div className = "stationMarker L" />
+            		  		<div className = {getMarkerClass("L")} />
             			</MarkerContent>
             			<MarkerTooltip> (L) {station.name} </MarkerTooltip>
           			</MapMarker>
@@ -163,7 +173,7 @@ export default function GetStations({
         		M_stations.map((station) => (
           			<MapMarker key = {`M-${station.id}`} longitude={station.lon} latitude={station.lat}>
             			<MarkerContent>
-            		  		<div className = "stationMarker BDFM" />
+            		  		<div className = {getMarkerClass("BDFM")} />
             			</MarkerContent>
             			<MarkerTooltip> (M) {station.name} </MarkerTooltip>
           			</MapMarker>
@@ -175,7 +185,7 @@ export default function GetStations({
         		N_stations.map((station) => (
           			<MapMarker key = {`N-${station.id}`} longitude={station.lon} latitude={station.lat}>
             			<MarkerContent>
-            		  		<div className = "stationMarker NQRW" />
+            		  		<div className = {getMarkerClass("NQRW")} />
             			</MarkerContent>
             			<MarkerTooltip> (N) {station.name} </MarkerTooltip>
           			</MapMarker>
@@ -187,7 +197,7 @@ export default function GetStations({
         		Q_stations.map((station) => (
           			<MapMarker key = {`Q-${station.id}`} longitude={station.lon} latitude={station.lat}>
             			<MarkerContent>
-            		  		<div className = "stationMarker NQRW" />
+            		  		<div className = {getMarkerClass("NQRW")} />
             			</MarkerContent>
             			<MarkerTooltip> (Q) {station.name} </MarkerTooltip>
           			</MapMarker>
@@ -199,7 +209,7 @@ export default function GetStations({
         		R_stations.map((station) => (
           			<MapMarker key = {`R-${station.id}`} longitude={station.lon} latitude={station.lat}>
             			<MarkerContent>
-            		  		<div className = "stationMarker NQRW" />
+            		  		<div className = {getMarkerClass("NQRW")} />
             			</MarkerContent>
             			<MarkerTooltip> (R) {station.name} </MarkerTooltip>
           			</MapMarker>
@@ -211,7 +221,7 @@ export default function GetStations({
         		W_stations.map((station) => (
           			<MapMarker key = {`W-${station.id}`} longitude={station.lon} latitude={station.lat}>
             			<MarkerContent>
-            		  		<div className = "stationMarker NQRW" />
+            		  		<div className = {getMarkerClass("NQRW")} />
             			</MarkerContent>
             			<MarkerTooltip> (W) {station.name} </MarkerTooltip>
           			</MapMarker>
@@ -223,7 +233,7 @@ export default function GetStations({
         		J_stations.map((station) => (
           			<MapMarker key = {`J-${station.id}`} longitude={station.lon} latitude={station.lat}>
             			<MarkerContent>
-            		  		<div className = "stationMarker JZ" />
+            		  		<div className = {getMarkerClass("JZ")} />
             			</MarkerContent>
             			<MarkerTooltip> (J) {station.name} </MarkerTooltip>
           			</MapMarker>
@@ -235,7 +245,7 @@ export default function GetStations({
         		Z_stations.map((station) => (
           			<MapMarker key = {`Z-${station.id}`} longitude={station.lon} latitude={station.lat}>
             			<MarkerContent>
-            		  		<div className = "stationMarker JZ" />
+            		  		<div className = {getMarkerClass("JZ")} />
             			</MarkerContent>
             			<MarkerTooltip> (Z) {station.name} </MarkerTooltip>
           			</MapMarker>
@@ -247,7 +257,7 @@ export default function GetStations({
         		Stations_1.map((station) => (
           			<MapMarker key = {`1-${station.id}`} longitude={station.lon} latitude={station.lat}>
             			<MarkerContent>
-            		  		<div className = "stationMarker seventhAve" />
+            		  		<div className = {getMarkerClass("seventhAve")} />
             			</MarkerContent>
             			<MarkerTooltip> (1) {station.name} </MarkerTooltip>
           			</MapMarker>
@@ -259,7 +269,7 @@ export default function GetStations({
         		Stations_2.map((station) => (
           			<MapMarker key = {`2-${station.id}`} longitude={station.lon} latitude={station.lat}>
             			<MarkerContent>
-            		  		<div className = "stationMarker seventhAve" />
+            		  		<div className = {getMarkerClass("seventhAve")} />
             			</MarkerContent>
             			<MarkerTooltip> (2) {station.name} </MarkerTooltip>
           			</MapMarker>
@@ -271,7 +281,7 @@ export default function GetStations({
         		Stations_3.map((station) => (
           			<MapMarker key = {`3-${station.id}`} longitude={station.lon} latitude={station.lat}>
             			<MarkerContent>
-            		  		<div className = "stationMarker seventhAve" />
+            		  		<div className = {getMarkerClass("seventhAve")} />
             			</MarkerContent>
             			<MarkerTooltip> (3) {station.name} </MarkerTooltip>
           			</MapMarker>
@@ -283,7 +293,7 @@ export default function GetStations({
         		Stations_4.map((station) => (
           			<MapMarker key = {`4-${station.id}`} longitude={station.lon} latitude={station.lat}>
             			<MarkerContent>
-            		  		<div className = "stationMarker lexingtonAve" />
+            		  		<div className = {getMarkerClass("lexingtonAve")} />
             			</MarkerContent>
             			<MarkerTooltip> (4) {station.name} </MarkerTooltip>
           			</MapMarker>
@@ -295,7 +305,7 @@ export default function GetStations({
         		Stations_5.map((station) => (
           			<MapMarker key = {`5-${station.id}`} longitude={station.lon} latitude={station.lat}>
             			<MarkerContent>
-            		  		<div className = "stationMarker lexingtonAve" />
+            		  		<div className = {getMarkerClass("lexingtonAve")} />
             			</MarkerContent>
             			<MarkerTooltip> (5) {station.name} </MarkerTooltip>
           			</MapMarker>
@@ -307,7 +317,7 @@ export default function GetStations({
         		Stations_6.map((station) => (
           			<MapMarker key = {`6-${station.id}`} longitude={station.lon} latitude={station.lat}>
             			<MarkerContent>
-            		  		<div className = "stationMarker lexingtonAve" />
+            		  		<div className = {getMarkerClass("lexingtonAve")} />
             			</MarkerContent>
             			<MarkerTooltip> (6) {station.name} </MarkerTooltip>
           			</MapMarker>
@@ -319,7 +329,7 @@ export default function GetStations({
         		Stations_7.map((station) => (
           			<MapMarker key = {`6-${station.id}`} longitude={station.lon} latitude={station.lat}>
             			<MarkerContent>
-            		  		<div className = "stationMarker flushing" />
+            		  		<div className = {getMarkerClass("flushing")} />
             			</MarkerContent>
             			<MarkerTooltip> (7) {station.name} </MarkerTooltip>
           			</MapMarker>
@@ -331,7 +341,7 @@ export default function GetStations({
         		S_42ndStreet.map((station) => (
           			<MapMarker key = {`S-${station.id}`} longitude={station.lon} latitude={station.lat}>
             			<MarkerContent>
-           	 	  			<div className="stationMarker S" />
+           	 	  			<div className = {getMarkerClass("S")} />
             			</MarkerContent>
             			<MarkerTooltip> (S) {station.name} </MarkerTooltip>
           			</MapMarker>
@@ -343,7 +353,7 @@ export default function GetStations({
 				FranklinAv_S.map((station) => (
 					<MapMarker key = {`S-franklinAv-${station.id}`} longitude={station.lon} latitude={station.lat}>
             			<MarkerContent>
-            	  			<div className = "stationMarker S" />
+            	  			<div className = {getMarkerClass("S")} />
             			</MarkerContent>
             			<MarkerTooltip> (S) {station.name} </MarkerTooltip>
           			</MapMarker>
@@ -355,7 +365,7 @@ export default function GetStations({
         		Rockaway_S.map((station) => (
           			<MapMarker key = {`S-rockaway-${station.id}`} longitude={station.lon} latitude={station.lat}>
             			<MarkerContent>
-            	  			<div className = "stationMarker S" />
+            	  			<div className = {getMarkerClass("S")} />
             			</MarkerContent>
             			<MarkerTooltip> (S) {station.name} </MarkerTooltip>
           			</MapMarker>

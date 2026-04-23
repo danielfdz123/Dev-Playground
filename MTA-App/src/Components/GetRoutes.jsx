@@ -56,6 +56,8 @@ export default function GetRoutes({ activeLine }) {
 
     return (
         <>
+			{/* RENDERS ROUTE WITH THE FADE EFFECTS */}
+
             {/* A routes */}
 				<MapRoute id = "a-main" coordinates = {A_Line} color = {"#0039A6"} width = {3} opacity = {activeLine === "A" || activeLine === "ALL" ? 1 : 0.2} />
         		<MapRoute id = "a-rockaway" coordinates = {A_RockawayLine} color = {"#0039A6"} width = {3} opacity = {activeLine === "A" || activeLine === "ALL" ? 1 : 0.2} />
@@ -129,6 +131,46 @@ export default function GetRoutes({ activeLine }) {
 				<MapRoute id = "s-42nd" coordinates = {S_42ndStreetLine} color = {"#818181"} width = {3} opacity = {activeLine === "S" || activeLine === "ALL" ? 1 : 0.2} />
         		<MapRoute id = "s-franklinAv" coordinates = {S_FranklinAvLine} color = {"#818181"} width = {3} opacity = {activeLine === "S" || activeLine === "ALL" ? 1 : 0.2} />
         		<MapRoute id = "s-rockaway" coordinates = {S_RockawayLine} color = {"#818181"} width = {3} opacity = {activeLine === "S" || activeLine === "ALL" ? 1 : 0.2} />
-        </>
+        
+			{/* RERENDERS SELECTED LINE TO FIX AN OVERLAP BUG */}
+
+			{activeLine ===  "A" && (
+				<>
+					<MapRoute coordinates = {A_Line} color = "#0039A6" width = {3} opacity = {1} />
+                    <MapRoute coordinates = {A_RockawayLine} color = "#0039A6" width = {3} opacity = {1} />
+                    <MapRoute coordinates = {A_LeffertsLine} color = "#0039A6" width = {3} opacity = {1} />
+				</>
+			)}
+
+			{activeLine === "B" && <MapRoute coordinates = {B_Line} color = "#FF6319" width = {3} opacity = {1} />}
+            {activeLine === "C" && <MapRoute coordinates = {C_Line} color = "#0039A6" width = {3} opacity = {1} />}
+            {activeLine === "D" && <MapRoute coordinates = {D_Line} color = "#FF6319" width = {3} opacity = {1} />}
+            {activeLine === "E" && <MapRoute coordinates = {E_Line} color = "#0039A6" width = {3} opacity = {1} />}
+            {activeLine === "F" && <MapRoute coordinates = {F_Line} color = "#FF6319" width = {3} opacity = {1} />}
+            {activeLine === "G" && <MapRoute coordinates = {G_Line} color = "#6CBE45" width = {3} opacity = {1} />}
+            {activeLine === "L" && <MapRoute coordinates = {L_Line} color = "#818181" width = {3} opacity = {1} />}
+            {activeLine === "M" && <MapRoute coordinates = {M_Line} color = "#FF6319" width = {3} opacity = {1} />}
+            {activeLine === "N" && <MapRoute coordinates = {N_Line} color = "#FCCC0A" width = {3} opacity = {1} />}
+            {activeLine === "Q" && <MapRoute coordinates = {Q_Line} color = "#FCCC0A" width = {3} opacity = {1} />}
+            {activeLine === "R" && <MapRoute coordinates = {R_Line} color = "#FCCC0A" width = {3} opacity = {1} />}
+            {activeLine === "W" && <MapRoute coordinates = {W_Line} color = "#FCCC0A" width = {3} opacity = {1} />}
+            {activeLine === "J" && <MapRoute coordinates = {J_Line} color = "#8E5C33" width = {3} opacity = {1} />}
+            {activeLine === "Z" && <MapRoute coordinates = {Z_Line} color = "#8E5C33" width = {3} opacity = {1} />}
+            {activeLine === "1" && <MapRoute coordinates = {Line_1} color = "#D82233" width = {3} opacity = {1} />}
+            {activeLine === "2" && <MapRoute coordinates = {Line_2} color = "#D82233" width = {3} opacity = {1} />}
+            {activeLine === "3" && <MapRoute coordinates = {Line_3} color = "#D82233" width = {3} opacity = {1} />}
+            {activeLine === "4" && <MapRoute coordinates = {Line_4} color = "#009952" width = {3} opacity = {1} />}
+            {activeLine === "5" && <MapRoute coordinates = {Line_5} color = "#009952" width = {3} opacity = {1} />}
+            {activeLine === "6" && <MapRoute coordinates = {Line_6} color = "#009952" width = {3} opacity = {1} />}
+            {activeLine === "7" && <MapRoute coordinates = {Line_7} color = "#9A38A1" width = {3} opacity = {1} />}
+		
+			{activeLine === "S" && (
+                <>
+                    <MapRoute coordinates = {S_42ndStreetLine} color = "#818181" width = {3} opacity = {1} />
+                    <MapRoute coordinates = {S_FranklinAvLine} color = "#818181" width = {3} opacity = {1} />
+                    <MapRoute coordinates = {S_RockawayLine} color = "#818181" width = {3} opacity = {1} />
+                </>
+            )}
+		</>
     );
 }
