@@ -568,7 +568,7 @@ export const SubwayLines = {
         { name: "Chambers St", id: "ChambersSt", lat: 40.71553335646429, lon: -74.00924150379309},
         { name: "WTC Cortlandt", id: "1_WTC", lat: 40.71174331988277, lon: -74.01221093298584},
         { name: "Rector St", id: "1_RectorSt", lat: 40.70798170383883, lon: -74.01360457881722},
-        { name: "South Ferry", id: "South Ferry", lat: 40.701738370014375, lon: -74.01297490267133}
+        { name: "South Ferry", id: "SouthFerry", lat: 40.701738370014375, lon: -74.01297490267133}
     ],
 
     2: [
