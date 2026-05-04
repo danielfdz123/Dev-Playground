@@ -553,7 +553,7 @@ export const SubwayLines = {
         { name: "79 St", id: "1_79St", lat: 40.78385264516735, lon: -73.97999553911039},
         { name: "72 St", id: "72St", lat: 40.77874271986499, lon: -73.98193690187762},
         { name: "66 St- Lincoln Center", id: "LincolnCenter", lat: 40.773645976828895, lon: -73.98221643079002},
-        { name: "59 St- Columbus Circle", id: "ColumbusCircle", lat: 40.76878274749985, lon: -73.9820970590844},
+        { name: "59 St- Columbus Circle", id: "ColumbusCircle", lat: 40.76807323003814, lon: -73.98189785979906},
         { name: "50 St" , id: "1_50St", lat: 40.76144567980046, lon: -73.98409757186226},
         { name: "Times Sq-42 St", id: "42ndStreet", lat: 40.756040658087116, lon: -73.98695339679016},
         { name: "34 St- Penn Station", id: "PennStation", lat: 40.7510018609179, lon: -73.99062381371186},
@@ -673,7 +673,7 @@ export const SubwayLines = {
         { name: "170 St", id: "4_170St", lat: 40.8402200308808, lon: -73.91769254185692},
         { name: "167 St", id: "4_167St", lat: 40.83573432991974, lon: -73.9212788867954},
         { name: "161 St- Yankee Stadium", id: "YankeeStadium", lat: 40.82788855589043, lon: -73.92589907915213},
-        { name: "149 St- Grand Concourse", id: "149StGrandConcourse", lat: 40.818319245323025, lon: -73.92743689515605},
+        { name: "149 St- Grand Concourse", id: "149StGrandConcourse", lat: 40.81857154153811, lon: -73.92731171831872},
         { name: "138 St- Grand Concourse", id: "138StGrandConcourse", lat: 40.813430466927244, lon: -73.92963230382394},
         { name: "125 St", id: "Lex_125St", lat: 40.80438201529214, lon: -73.93742408341735},
         { name: "86 St", id: "Lex_86St", lat: 40.77950671882633, lon: -73.95558381472134},
@@ -806,7 +806,7 @@ export const FranklinAv_S = [
     { name: "Franklin Av", id: "FranklinAv", lat: 40.68077524760437, lon: -73.9557637941937},
     { name: "Park Place", id: "ParkPlace", lat: 40.674848998783965, lon: -73.95761038286224},
     { name: "Botanic Garden", id: "MedgarEvers", lat: 40.66990719921095, lon: -73.95941161414257},
-    { name: "Prospect Park", id: "ProspectPark", lat: 40.66090955179789, lon: -73.96211132825103},
+    { name: "Prospect Park", id: "ProspectPark", lat: 40.6614314510283, lon: -73.96222475998333},
 ]
 
 export const Rockaway_S = [
