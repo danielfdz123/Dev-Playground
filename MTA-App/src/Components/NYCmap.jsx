@@ -25,7 +25,7 @@ export default function NYCmap() {
         		viewport = {viewport}
         		maxBounds = {[[-74.5, 40.4], [-73.3, 41.0]]}
         		minZoom = {10}
-        		maxZoom = {15}
+        		maxZoom = {14}
         		onViewportChange={(next) => setViewport((prev) => ({...prev, ...next }))}
 				>
         	<MapControls />

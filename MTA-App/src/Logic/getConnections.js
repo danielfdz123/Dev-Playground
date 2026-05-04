@@ -29,16 +29,27 @@ export function getConnections() {
     };
 
     const groupByCords = {};
+    const groupByID = {};
     
     // Will go through all lines in the system to look for any station that needs to be merged
     for (const line in allLines) 
     {
         const stations = allLines[line];
 
+        // GROUP NAMES via ID
         for (const station of stations) 
         {
-
-            // This key will group stations based matching on coordinates
+            // Prevents duplicates regarding ID
+            if (!groupByID[station.id]) 
+            {
+                groupByID[station.id] = [];
+            }
+            if (!groupByID[station.id].includes(line)) 
+            {
+                groupByID[station.id].push(line);
+            }
+        
+        // GROUP MARKERS via COORDINATES
             const key = `${station.lat}_${station.lon}`;
 
             if (!groupByCords[key]) {
@@ -47,10 +58,10 @@ export function getConnections() {
                     lon: station.lon,
                     names: [],
                     lines: [],
+                    ids: []
                 };
             }
             const group = groupByCords[key];
-
 
             // Prevents duplicate markers from being rendered (more markers = lag)
             if (!group.names.includes(station.name)) 
@@ -62,15 +73,39 @@ export function getConnections() {
             {
                 group.lines.push(line);
             }
+            if (station.id && !group.ids.includes(station.id)) 
+            {
+                group.ids.push(station.id);
+            }
         }
     }
 
     // Specifices grouped/solo markers with proper naming
-    return Object.values(groupByCords).map((station) => ({
-        ...station,
-        name: station.names[0],
+    return Object.values(groupByCords).map((station) => {        
+        
+        const mergedLines = [...station.lines];
 
-        // Adds a slash if multiple lines are present at a single station
-        displayName: `(${station.lines.join("/")}) ${station.names[0]}`,
-    }));
+        // Merges grouped lines via coordinates & IDs to show all available transfers
+        for (const id of station.ids) 
+        {
+            const idLines = groupByID[id] || [];
+            for (const line of idLines) 
+            {
+                if (!mergedLines.includes(line)) 
+                {
+                    mergedLines.push(line);
+                }
+            }
+        }
+
+        // Marker details (marker positioning/name, filtering, transfers)
+        return {
+            lat: station.lat,
+            lon: station.lon,
+            lines: station.lines,
+            name: station.names[0],
+            transferLines: mergedLines,
+            displayName: `(${mergedLines.join("/")}) ${station.names[0]}`,
+        };
+    });
 }
