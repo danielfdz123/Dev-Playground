@@ -15,7 +15,7 @@ export default function NYCmap() {
 
 	// Stations will show as well when we pass a certain zoom level
   	const [viewport, setViewport] = useState({ center: [-73.912740, 40.734452], zoom: 11 });
-  	const stationZoomLimit = 13.5;
+  	const stationZoomLimit = 12.3;
  	const showAllStationsAtZoom = activeLine === "ALL" && viewport.zoom >= stationZoomLimit;
 
   	return (
