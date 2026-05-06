@@ -9,6 +9,8 @@ import FilterRoute from "../Components/FilterRoute";
 import GetRoutes from "../Components/GetRoutes";
 import GetStations from "../Components/GetStations";
 
+import TransferLines from "../Logic/drawTransfersLines";
+
 export default function NYCmap() {
 	// By default, ALL lines will be shown unless toggled
 	const [activeLine, setActiveLine] = useState("ALL");
@@ -25,7 +27,7 @@ export default function NYCmap() {
         		viewport = {viewport}
         		maxBounds = {[[-74.5, 40.4], [-73.3, 41.0]]}
         		minZoom = {10}
-        		maxZoom = {14}
+        		maxZoom = {14.5}
         		onViewportChange={(next) => setViewport((prev) => ({...prev, ...next }))}
 				>
         	<MapControls />
@@ -45,6 +47,13 @@ export default function NYCmap() {
           		FranklinAv_S = {FranklinAv_S}
           		Rockaway_S = {Rockaway_S}
         	/>
+
+		{/* RENDERING TRANSFER LINES ~ shown by white line connecting station markers */}
+			<TransferLines 
+				activeLine = {activeLine} 
+				showAllStationsAtZoom = {showAllStationsAtZoom}
+			/>
+
       		</Map>
     	</div>
   	);
