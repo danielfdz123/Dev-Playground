@@ -1,0 +1,81 @@
+.lineInfoDiv {
+    display: flex;
+    align-items: center;
+}
+
+.trainLineImg {
+    width: 8vh;
+    height: 8vh;
+}
+
+.lineInfoText {
+    font-size: 1.6vh;
+    font-weight: 500;
+}
+
+.directionDiv {
+    display: flex;
+    align-items: center;
+    gap: 1vh;
+}
+
+.directionText {
+    margin: 0;
+    font-size: 1.67vh;
+    font-weight: 500;
+}
+
+.directionButton {
+    /* Sizing */
+    padding: 0.2vh;
+    font-size: 1.3vh;
+    border-radius: 0.4vh;
+    
+    /* Other */
+    border: 1px solid black;
+    background: white;
+    cursor: pointer;
+}
+
+.directionButton:hover {
+    background: #f2f2f2;
+}
+
+/* Shows which direction is toggled */
+.activeDirection {
+    background: rgb(221, 221, 221);
+    color: rgb(0, 0, 0);
+}
+
+.lineStopsDiv {
+    /* Styling */
+    display: flex;
+    flex-direction: column;
+    margin-left: 1vh;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    overflow-y: auto;
+    max-height: 54.1vh;
+    gap: 1vh;
+}
+
+.horizontalDiv {
+    display: flex;
+    align-items: center;
+    gap: 0.7vh;
+}
+
+.bulletPoints {
+    font-size: 1.4vh;
+}
+
+.stationName {
+    font-size: 1.5vh
+}
+
+.stationTransfers {
+    display: flex;
+    align-items: center;
+    width: 2vh;
+    height: 2vh;
+}

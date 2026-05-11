@@ -2,8 +2,9 @@ import React from "react";
 
 import "./Sidebar.css";
 import StationSearch from "./StationSearch";
+import LineInfo from "./LineInfo";
 
-export default function Sidebar() {
+export default function Sidebar({activeLine}) {
     return (
         <div className = "sidebarDiv">
             <div className = "topHalf">
@@ -22,9 +23,14 @@ export default function Sidebar() {
                 <div className = "searchStationDiv">
                     <StationSearch/>
                 </div>
+            </div>
 
-                {/* Add component for subway cars that show fastest transfer here */}
-            </div>           
+            {/* Add component for subway cars that show fastest transfer here */}
+            {activeLine !== "ALL" && (
+                <div className = "topHalf">
+                    <LineInfo activeLine={activeLine} />
+                </div>
+            )}
         </div>
     );
 }

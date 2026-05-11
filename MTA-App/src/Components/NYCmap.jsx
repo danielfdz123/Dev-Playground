@@ -11,9 +11,8 @@ import GetStations from "../Components/GetStations";
 
 import TransferLines from "../Logic/drawTransfersLines";
 
-export default function NYCmap() {
+export default function NYCmap({ activeLine, setActiveLine }) {
 	// By default, ALL lines will be shown unless toggled
-	const [activeLine, setActiveLine] = useState("ALL");
 
 	// Stations will show as well when we pass a certain zoom level
   	const [viewport, setViewport] = useState({ center: [-73.912740, 40.734452], zoom: 11 });

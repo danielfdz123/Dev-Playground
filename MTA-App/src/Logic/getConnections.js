@@ -4,7 +4,9 @@ export function getConnections() {
     // Import subway station data and push it into an array for easier handling
     const allLines = {
         A: [...A, ...rockaway_A, ...lefferts_A],
-        S: [...S_42ndStreet, ...FranklinAv_S, ...Rockaway_S],
+        S: S_42ndStreet,
+        S_FranklinAv: FranklinAv_S,
+        S_FarRock: Rockaway_S,
         B: SubwayLines.B || [],
         C: SubwayLines.C || [],
         D: SubwayLines.D || [],
@@ -27,6 +29,14 @@ export function getConnections() {
         "6": SubwayLines["6"] || [],
         "7": SubwayLines["7"] || [],
     };
+
+    function getDisplayLine(line) {
+    if (line === "S_FranklinAv" || line === "S_FarRock") 
+    {
+        return "S";
+    }
+    return line;
+}
 
     const groupByCords = {};
     const groupByID = {};
@@ -57,11 +67,13 @@ export function getConnections() {
                     lat: station.lat,
                     lon: station.lon,
                     names: [],
+                    namesByLine: {},
                     lines: [],
                     ids: []
                 };
             }
             const group = groupByCords[key];
+            group.namesByLine[line] = station.name;
 
             // Prevents duplicate markers from being rendered (more markers = lag)
             if (!group.names.includes(station.name)) 
@@ -104,8 +116,8 @@ export function getConnections() {
             lon: station.lon,
             lines: station.lines,
             name: station.names[0],
+            namesByLine: station.namesByLine,
             transferLines: mergedLines,
-            displayName: `(${mergedLines.join("/")}) ${station.names[0]}`,
-        };
+            displayName: `(${[...new Set(mergedLines.map(getDisplayLine))].join("/")}) ${station.names[0]}`,        };
     });
 }

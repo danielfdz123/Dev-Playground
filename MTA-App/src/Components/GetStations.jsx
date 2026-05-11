@@ -28,10 +28,18 @@ export default function GetStations({
     	if (line === "7") return "stationMarker flushing";
     	if (line === "G") return "stationMarker G";
     	if (line === "L") return "stationMarker L";
-    	if (line === "S") return "stationMarker S";
-
+    	if (["S", "S_FranklinAv", "S_FarRock"].includes(line)) return "stationMarker S";
 		return "stationMarker";
 	}
+
+	function getDisplayLine(line) 
+	{
+        if (line === "S_FranklinAv" || line === "S_FarRock") 
+		{
+            return "S";
+        }
+        return line;
+    }
 
     return (
         <>
@@ -45,13 +53,16 @@ export default function GetStations({
 
                 if (!shouldShow) return null;
 
+				const stationName = station.namesByLine?.[activeLine] || station.name;
+                const displayLines = [...new Set(station.transferLines.map(getDisplayLine))];
+
 				// Displays marker infromation
                 return (
-                    <MapMarker key = {station.id} longitude={station.lon} latitude={station.lat}>
-                        <MarkerContent>
+				<MapMarker key = {`${station.name}-${station.lat}-${station.lon}`} longitude={station.lon} latitude={station.lat} >                        
+						<MarkerContent>
                             <div className = {getMarkerClass(station.lines)} />
                         </MarkerContent>
-                        <MarkerTooltip> {station.displayName} </MarkerTooltip>
+                        <MarkerTooltip> ({displayLines.join("/")}) {stationName} </MarkerTooltip>
                     </MapMarker>
                 );
 			})}    

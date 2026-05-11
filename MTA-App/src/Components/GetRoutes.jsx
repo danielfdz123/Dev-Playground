@@ -129,8 +129,8 @@ export default function GetRoutes({ activeLine }) {
 
 			{/* S routes */}
 				<MapRoute id = "s-42nd" coordinates = {S_42ndStreetLine} color = {"#818181"} width = {3} opacity = {activeLine === "S" || activeLine === "ALL" ? 1 : 0.2} />
-        		<MapRoute id = "s-franklinAv" coordinates = {S_FranklinAvLine} color = {"#818181"} width = {3} opacity = {activeLine === "S" || activeLine === "ALL" ? 1 : 0.2} />
-        		<MapRoute id = "s-rockaway" coordinates = {S_RockawayLine} color = {"#818181"} width = {3} opacity = {activeLine === "S" || activeLine === "ALL" ? 1 : 0.2} />
+        		<MapRoute id = "s-franklinAv" coordinates = {S_FranklinAvLine} color = {"#818181"} width = {3} opacity = {activeLine === "S_FranklinAv" || activeLine === "ALL" ? 1 : 0.2} />
+        		<MapRoute id = "s-rockaway" coordinates = {S_RockawayLine} color = {"#818181"} width = {3} opacity = {activeLine === "S_FarRock" || activeLine === "ALL" ? 1 : 0.2} />
         
 			{/* RERENDERS SELECTED LINE TO FIX AN OVERLAP BUG */}
 
@@ -163,14 +163,11 @@ export default function GetRoutes({ activeLine }) {
             {activeLine === "5" && <MapRoute coordinates = {Line_5} color = "#009952" width = {3} opacity = {1} />}
             {activeLine === "6" && <MapRoute coordinates = {Line_6} color = "#009952" width = {3} opacity = {1} />}
             {activeLine === "7" && <MapRoute coordinates = {Line_7} color = "#9A38A1" width = {3} opacity = {1} />}
-		
-			{activeLine === "S" && (
-                <>
-                    <MapRoute coordinates = {S_42ndStreetLine} color = "#818181" width = {3} opacity = {1} />
-                    <MapRoute coordinates = {S_FranklinAvLine} color = "#818181" width = {3} opacity = {1} />
-                    <MapRoute coordinates = {S_RockawayLine} color = "#818181" width = {3} opacity = {1} />
-                </>
-            )}
+            
+            {activeLine === "S" && <MapRoute coordinates = {S_42ndStreetLine} color = "#818181" width = {3} opacity = {1} />}
+            {activeLine === "S_FranklinAv" && <MapRoute coordinates = {S_FranklinAvLine} color = "#818181" width = {3} opacity = {1} />}
+            {activeLine === "S_FarRock" && <MapRoute coordinates = {S_RockawayLine} color = "#818181" width = {3} opacity = {1} />}
+
 		</>
     );
 }

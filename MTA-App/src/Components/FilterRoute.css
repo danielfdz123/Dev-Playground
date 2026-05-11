@@ -4,17 +4,19 @@
     top: 1vw;
     right: 1vw;
     z-index: 20;
-    padding: 0.5vw;
+    padding: 0.5rem;
 
+    /* Sizing */
+    width: 7vw;
+    
     /* Other stuff */
     background: white;
-    border-radius: 15px;
+    border-radius: 1vw;
 }
 
 /* Sets up horizontal content */
 .row {
     display: flex;
-    align-items: center;
     gap: 10px;
 }
 
@@ -26,7 +28,7 @@
 }
 
 .subwayLine {
-    font-size: 14px;
+    font-size: 0.75vw;
 }
 
 /* Bolds text when toggled */

@@ -28,7 +28,7 @@ export default function FilterRoute({ activeLine, setActiveLine }) {
 
     function shuttleLines() 
     {
-        const lines = ["S", "ALL"];
+        const lines = ["S", "S_FranklinAv", "S_FarRock", "ALL"];
         const currentIndex = lines.indexOf(activeLine);
         const nextIndex = (currentIndex + 1) % lines.length;
         setActiveLine(lines[nextIndex]);
@@ -175,8 +175,30 @@ export default function FilterRoute({ activeLine, setActiveLine }) {
             <div className="row">
                 <button className="lineColor grey" onClick={shuttleLines} />
                 <span className="subwayLine">
-                    <span className={activeLine === "S" || activeLine === "ALL" ? "activeText" : ""}>S</span>{""}
+                    {/* Changes text of the "S" depending on which of the 3 shuttle lines are toggled */}
+                    <span className={activeLine === "S" || activeLine === "S_FranklinAv" || activeLine === "S_FarRock" || activeLine === "ALL" ? "activeText" : ""}> {(() => {
+                    if (activeLine === "S") 
+                    {
+                        return "S (42 St)";
+                    }
+                    else if (activeLine === "S_FranklinAv") 
+                    {
+                        return "S (Franklin)";
+                    }
+                    else if (activeLine === "S_FarRock") 
+                    {
+                        return "S (Far Rock)";
+                    }
+                    else if (activeLine === "ALL") 
+                    {
+                        return "S";
+                    }
+
+        return "S";
+
+    })()}
                 </span>
+            </span>
             </div>
         </div>
     );
