@@ -16,7 +16,7 @@ export default function Sidebar({activeLine}) {
                 
                     <div className = "instDiv">
                         <p className = "instructions">
-                            Enter your starting MTA New York City Subway Station and end with your destination to get the quickest route with best transfers if needed!
+                            Enter your starting and destination NYC Subway Station to get the quickest route with best transfers if needed!
                         </p>
                     </div>
                 </div>
@@ -27,7 +27,7 @@ export default function Sidebar({activeLine}) {
 
             {/* Add component for subway cars that show fastest transfer here */}
             {activeLine !== "ALL" && (
-                <div className = "topHalf">
+                <div className = "bottomHalf">
                     <LineInfo activeLine={activeLine} />
                 </div>
             )}

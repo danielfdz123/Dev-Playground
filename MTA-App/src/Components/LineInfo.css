@@ -27,8 +27,8 @@
 
 .directionButton {
     /* Sizing */
-    padding: 0.2vh;
-    font-size: 1.3vh;
+    padding: 0.12vh;
+    font-size: 1.2vh;
     border-radius: 0.4vh;
     
     /* Other */
@@ -55,7 +55,7 @@
     margin-top: 1vh;
     margin-bottom: 1vh;
     overflow-y: auto;
-    max-height: 54.1vh;
+    max-height: 55vh;
     gap: 1vh;
 }
 
@@ -70,7 +70,7 @@
 }
 
 .stationName {
-    font-size: 1.5vh
+    font-size: 1.59vh
 }
 
 .stationTransfers {

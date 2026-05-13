@@ -10,9 +10,13 @@
     padding-right: 0.6vw; */
 
     /* Sizing */
+    width: 18vw;
     max-height: 96vh;
-    min-width: 2vw;
-    max-width: 18vw;
+
+    /* Layout */
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
 
     /* Other */
     overflow-y: auto;
@@ -21,26 +25,40 @@
 }
 
 .topHalf {
-    border-radius: 5px;
+    width: 100%;
+    border-radius: 1vh;
     border: 2px solid #ada2a2;
     margin-bottom: 1vh;
+    padding-bottom: 1vh;
+    flex-direction: column;
+    position: relative;
+    overflow: visible;
+    flex: 0 0 auto;
+}
+
+.bottomHalf {
+    border-radius: 1vh;
+    border: 2px solid #ada2a2;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    flex: 1;
 }
 
 .introDiv {
     padding: 0.25vw;
 }
 
+/* MTA SUBWAY ROUTE FINDER */
 .headerTextDiv {
     padding-left: 0.5vw;
     padding-right: 0.5vw;
     border-bottom: 2px solid #000000;
-}
-
-.introText {
     font-weight: bold;
     font-size: 2.2vh;
 }
 
+/* Enter your starting MTA station... */
 .instDiv {
     padding: 0.4vw;
     color: rgb(92, 92, 92);
@@ -48,7 +66,9 @@
 }
 
 .searchStationDiv {
+    width: 100%;
     padding-left: 0.5vw;
     padding-right: 0.5vw;
-    padding-bottom: 0.5vw;
+    /* padding-bottom: 0.5vw; */
+    box-sizing: border-box;
 }

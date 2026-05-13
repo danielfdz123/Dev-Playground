@@ -143,7 +143,7 @@ export default function LineInfo({ activeLine }) {
                 <div>
                     <p className = "lineInfoText"> 📍 {destination} <br/> 🚉 {stopCount} Stops | {carLength} cars</p>
                     <div className = "directionDiv">
-                        <p className = "directionText"> ↕️ Direction: </p>
+                        <p className = "directionText"> ↕️ </p>
 
                         {/* Uptown Button */}
                             <button 

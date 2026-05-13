@@ -1,12 +1,63 @@
 import { useState } from "react";
-import { SubwayLines, A } from "../Data/SubwayLines";
+import { SubwayLines, A, rockaway_A, lefferts_A, S_42ndStreet, FranklinAv_S, Rockaway_S } from "../Data/SubwayLines";
 import "./StationSearch.css"
 
-
-// This function gets all the stops for each subway line and puhses them into an array
+// Gets all subway lines/stations
 function getAllStations()
 {
-    // Sets up empty of all stations with their transfers
+    return {
+        ...SubwayLines,
+        A: [...A, ...rockaway_A, ...lefferts_A],
+        S: [...S_42ndStreet, ...FranklinAv_S, ...Rockaway_S]
+    };
+}
+
+// Customly groups any station with specific ID's due to the complexity of the station
+function customGrouping(station, line)
+{
+    // Checks if station is on 42nd Street via ID
+    if(station.id === "42ndStreet")
+    {
+        if(line === "A" || line === "C" || line === "E")
+        {
+            return "PortAuthority";
+        }
+        else if(line === "B" || line === "D" || line === "F" || line === "M"|| (line === "7" && station.name === "5 Av"))
+        {
+            return "BryantPark";
+        }
+        else if(line === "1" || line === "2" || line === "3" || line === "N" || line === "Q" || line === "R" || line === "W" || (line === "7" && station.name === "Times Sq-42 St") || line === "S")
+        {
+            return "TimesSquare";
+        }
+    }    
+
+    // Checks if station is apart of the WTC transfer complex via ID
+    if(station.id === "WTC")
+    {
+        if(line === "A" || line === "C")
+        {
+            return "ChambersST_ACE";
+        }
+        else if(line === "R" || line === "W" )
+        {
+            return "CortlandtSt_RW";
+        }
+        else if(line === "2" || line === "3")
+        {
+            return "ParkPlace_23";
+        }
+        else
+        {
+            return "WorldTradeCenter";
+        }
+    }    
+    return station.id;
+}
+
+// Automatically group stations together by ID
+function groupStationsById(SubwayLines)
+{
     const stationGroups = {};
 
     for(const line in SubwayLines)
@@ -15,17 +66,10 @@ function getAllStations()
         for(const station of stations)
         {
             const stationName = station.name;
-            const stationId = station.id;
-
-            // Removing duplicated A train stops from displaying in thge search engine
-            let displayedLine = line;
-            if((line === "A ~ Lefferts Blvd" || line === "A ~ Far Rockaway") && A.some(aStop => aStop.id === stationId))
-            {
-                displayedLine = "A";
-            }
+            // Starts the grouping process, first with WTC and 42 Street stations
+            const groupId = customGrouping(station, line);
 
             // Grouping subway stations together so we dont see Penn Station various times, but now just once
-            const groupId = stationId;
             if(!stationGroups[groupId])
             {
                 stationGroups[groupId] = {
@@ -40,9 +84,9 @@ function getAllStations()
                 stationGroups[groupId].stops.push(stationName);
             }
 
-            if (!stationGroups[groupId].lines.includes(displayedLine))
+            if(!stationGroups[groupId].lines.includes(line))
             {
-                stationGroups[groupId].lines.push(displayedLine);
+                stationGroups[groupId].lines.push(line);
             }
         }
     }
@@ -52,7 +96,7 @@ function getAllStations()
         stop: group.stops[0],
         stops: group.stops,
         lines: group.lines,
-        display: `(${group.lines.join(", ")}) ${group.stops.join(" / ")}`
+        display: `(${group.lines.join("/")}) ${group.stops.join(" • ")}`
     }));
     return subwayStations;
 }
@@ -99,7 +143,8 @@ function getMatchingStations(userInput, stations)
     }
     return matchText;
 }
-const subwayStations = getAllStations();
+const allStations = getAllStations();
+const subwayStations = groupStationsById(allStations);
 
 
 export default function StationSearch()
