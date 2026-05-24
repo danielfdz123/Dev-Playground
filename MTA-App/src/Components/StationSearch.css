@@ -44,16 +44,48 @@
     background-color: rgb(240, 239, 239);
     max-height: 25vh;
     overflow-y: auto;
+    
 }
 
 .suggestedStation {
     padding: 0.33vw;
     font-size: 1.8vh;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.3vh;
+}
+
+.displayStationName {
+    font-size: 1.6vh
+}
+
+.suggestedLineImg {
+    width: 2.2vh;
+    height: 2.2vh;
 }
 
 .suggestedStation:hover {
     background-color: #c9c9c9;
+}
+
+.selectedStation {
+    position: absolute;
+    top: 50%;
+    left: 0.7vh;
+    transform: translateY(-50%);
+
+    display: flex;
+    align-items: center;
+    gap: 0.3vh;
+
+    font-size: 1.8vh;
+    pointer-events: none;
+}
+
+/* NEW: Hide selected station overlay when clicking inside the input */
+.stationInput input:focus ~ .selectedStation {
+    opacity: 0.1;
 }
 
 .searchButton {
@@ -69,4 +101,9 @@
 
 .searchButton:hover {
     cursor: pointer;
+}
+
+.hideInputText {
+    color: transparent;
+    caret-color: transparent;
 }

@@ -1,6 +1,7 @@
 .lineInfoDiv {
     display: flex;
     align-items: center;
+    border-bottom: 0.3vh solid #ada2a2;
 }
 
 .trainLineImg {

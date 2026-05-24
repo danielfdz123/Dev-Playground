@@ -1,4 +1,4 @@
-function calculateTransferTime(stationName, stationID, startLine, transferLine)
+export default function calculateTransferTime(stationName, stationID, startLine, transferLine)
 {
     if(stationID === "168St")
     {
@@ -40,7 +40,7 @@ function calculateTransferTime(stationName, stationID, startLine, transferLine)
         }
         return 0;
     }
-    else if(stationID === "42ndStreet")
+    else if((stationID === "PortAuthority") || (stationID == "BryantPark") || (stationID == "TimesSquare"))
     {
         // 2 min | 7 (5 Av) <-> B/D/F/M
         if(stationName === "5 Av" && ((startLine === "7" && ["B", "D", "F", "M"].includes(transferLine)) || (["B", "D", "F", "M"].includes(startLine) && transferLine === "7")))
@@ -466,5 +466,9 @@ function calculateTransferTime(stationName, stationID, startLine, transferLine)
     {
         return 3;
     }
-    return 0;
+    else
+    {
+        return 0;
+    }
+   
 }

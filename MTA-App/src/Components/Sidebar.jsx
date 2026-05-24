@@ -1,10 +1,14 @@
-import React from "react";
+import { React, useState }from "react";
 
 import "./Sidebar.css";
 import StationSearch from "./StationSearch";
 import LineInfo from "./LineInfo";
+import RouteResults from "./RouteResults";
 
-export default function Sidebar({activeLine}) {
+export default function Sidebar({activeLine}) 
+{
+    const [routeResult, setRouteResult] = useState(null);
+
     return (
         <div className = "sidebarDiv">
             <div className = "topHalf">
@@ -21,14 +25,18 @@ export default function Sidebar({activeLine}) {
                     </div>
                 </div>
                 <div className = "searchStationDiv">
-                    <StationSearch/>
+                    <StationSearch setRouteResult = {setRouteResult} />
                 </div>
             </div>
 
             {/* Add component for subway cars that show fastest transfer here */}
-            {activeLine !== "ALL" && (
+            {activeLine !== "ALL" ? (
                 <div className = "bottomHalf">
                     <LineInfo activeLine={activeLine} />
+                </div>
+            ) : (
+                <div className = "bottomHalf">
+                    <RouteResults routeResult = {routeResult} />
                 </div>
             )}
         </div>
