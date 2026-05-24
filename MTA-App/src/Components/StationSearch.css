@@ -83,7 +83,6 @@
     pointer-events: none;
 }
 
-/* NEW: Hide selected station overlay when clicking inside the input */
 .stationInput input:focus ~ .selectedStation {
     opacity: 0.1;
 }
