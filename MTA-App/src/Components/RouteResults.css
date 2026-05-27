@@ -1,0 +1,135 @@
+.routeInfoDiv {
+    display: flex;
+    align-items: center;
+    border-bottom: 0.3vh solid #ada2a2;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.routeInfoText {
+    margin: 0 auto;
+    font-size: 1.9vh;
+    font-weight: 500;
+    margin-top: 1vh;
+    margin-bottom: 0.5vh;
+}
+
+.startInfoDiv {
+    display: flex;
+    align-items: center;
+    font-size: 1.9vh;
+}
+
+.trainLineImg {
+    width: 6vh;
+    height: 6vh;
+}
+
+.routeLineDiv {
+    position: relative;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    min-height: 2vh;
+    max-height: 54.4vh;
+}
+
+.routeLineDiv::-webkit-scrollbar {
+    display: none;
+}
+
+.routeLineContent {
+    position: relative;
+}
+
+.routeLineContent::before {
+    content: "";
+    position: absolute;
+    top: 1.4vh;
+    bottom: 1.4vh;
+    left: 1.3vh;
+    width: 0.3vh;
+    background-color: var(--routeColor);
+    z-index: 0;
+}
+
+.startStuff {
+    display: flex;
+    align-items: center;
+    gap: 0.7vh;
+    margin-left: 0.5vh;
+}
+
+.startBullet {
+    font-size: 2vh;
+}
+
+.userInputStations {
+    font-size: 1.9vh;
+}
+
+.stopList {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1vh;
+    margin-top: 0.5vh;
+    overflow-x: hidden;
+    gap: 1vh;
+}
+
+.routeStopsDiv {
+    /* Styling */
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    gap: 0.5vh;
+}
+
+.horizontalDiv {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.bulletPoints {
+    font-size: 1vh;
+}
+
+.stopName {
+    font-size: 1.2vh
+}
+
+.stopsDropdownButton {
+    display: flex;
+    align-items: center;
+    gap: 0.7vh;
+    margin-left: 3.4vh;
+    font-size: 1.4vh;
+}
+
+.dropdownArrow {
+    display: inline-block;
+    transform: rotate(90deg);
+}
+
+.dropdownArrow.open {
+    transform: rotate(-90deg);
+}
+
+.startBullet,
+.bulletPoints {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+}
+
+.destinationStuff {
+    display: flex;
+    align-items: center;
+    gap: 0.7vh;
+    margin-left: 0.5vh;
+    z-index: 2;
+}
