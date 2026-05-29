@@ -37,7 +37,7 @@ export default function NYCmap({ activeLine, setActiveLine, routeResult, setRout
         	<MapControls />
 
 		{/* RENDERING ROUTES */}
-        	<GetRoutes activeLine={activeLine} />
+        	<GetRoutes activeLine = {activeLine} routeResult = {routeResult} />
 
 		{/* RENDERING STATIONS ~ passing values via props */}
         	<GetStations
