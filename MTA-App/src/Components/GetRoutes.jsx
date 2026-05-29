@@ -7,9 +7,9 @@ export default function GetRoutes({ activeLine, routeResult })
 	// Shows sliced route to correspond with our route finder
     if(routeResult)
     {
-        return <GetSlicedRoute routeResult={routeResult} />;
+        return <GetSlicedRoute routeResult = {routeResult}/>
     }
 
 	// Show all when using the view ALL mode
-    return <GetFullRoute activeLine={activeLine} />;
+    return <GetFullRoute activeLine = {activeLine}/>
 }
