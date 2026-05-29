@@ -5,9 +5,7 @@ import StationSearch from "./StationSearch";
 import LineInfo from "./LineInfo";
 import RouteResults from "./RouteResults";
 
-export default function Sidebar({activeLine}) 
-{
-    const [routeResult, setRouteResult] = useState(null);
+export default function Sidebar({activeLine, setActiveLine, routeResult, setRouteResult}){
 
     return (
         <div className = "sidebarDiv">
@@ -25,18 +23,23 @@ export default function Sidebar({activeLine})
                     </div>
                 </div>
                 <div className = "searchStationDiv">
-                    <StationSearch setRouteResult = {setRouteResult} />
+                    <StationSearch setRouteResult = {setRouteResult}  setActiveLine = {setActiveLine}/>
                 </div>
             </div>
 
             {/* Add component for subway cars that show fastest transfer here */}
-            {activeLine !== "ALL" ? (
-                <div className = "bottomHalf">
-                    <LineInfo activeLine={activeLine} />
-                </div>
-            ) : (
+            {routeResult ? (
                 <div className = "bottomHalf">
                     <RouteResults routeResult = {routeResult} />
+                </div>
+            ) : activeLine !== "ALL" ? (
+                <div className = "bottomHalf">
+                    <LineInfo activeLine = {activeLine} />
+                </div>
+            ) : (
+                // Shows nothing
+                <div className = "bottomHalf">
+                    {/* <RouteResults routeResult = {routeResult} /> */}
                 </div>
             )}
         </div>

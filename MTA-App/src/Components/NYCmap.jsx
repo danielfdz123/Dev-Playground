@@ -11,17 +11,22 @@ import GetStations from "../Components/GetStations";
 
 import TransferLines from "../Logic/drawTransfersLines";
 
-export default function NYCmap({ activeLine, setActiveLine }) {
-	// By default, ALL lines will be shown unless toggled
+export default function NYCmap({ activeLine, setActiveLine, routeResult, setRouteResult }) {	// By default, ALL lines will be shown unless toggled
 
 	// Stations will show as well when we pass a certain zoom level
   	const [viewport, setViewport] = useState({ center: [-73.912740, 40.734452], zoom: 11 });
   	const stationZoomLimit = 12.3;
  	const showAllStationsAtZoom = activeLine === "ALL" && viewport.zoom >= stationZoomLimit;
 
+	function changeActiveLine(line)
+	{
+    	setRouteResult(null);
+    	setActiveLine(line);
+	}
+
   	return (
     	<div className = "nyc-map-wrapper">
-      		<FilterRoute activeLine = {activeLine} setActiveLine={setActiveLine}/>
+      		<FilterRoute activeLine = {activeLine} setActiveLine = {changeActiveLine}/>
       		<Map className= "nyc-map"
         		viewport = {viewport}
         		maxBounds = {[[-74.5, 40.4], [-73.3, 41.0]]}

@@ -7,11 +7,12 @@ import './App.css'
 
 function App() {
 	const [activeLine, setActiveLine] = useState("ALL");
+	const [routeResult, setRouteResult] = useState(null);
 
     return (
     	<div className = "appDiv">
-      		<NYCmap activeLine = {activeLine} setActiveLine = {setActiveLine} />
-			<Sidebar activeLine = {activeLine} />
+      		<NYCmap activeLine = {activeLine} setActiveLine = {setActiveLine} routeResult = {routeResult} setRouteResult = {setRouteResult}/>
+			<Sidebar activeLine = {activeLine} setActiveLine = {setActiveLine} routeResult = {routeResult} setRouteResult = {setRouteResult}/>
    		</div>
   	);
 }

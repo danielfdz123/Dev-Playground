@@ -184,7 +184,7 @@ const allStations = getAllStations();
 const groupedStations = gruopStations(allStations);
 const subwayStations = getSeparatedStations(groupedStations);
 
-export default function StationSearch({setRouteResult})
+export default function StationSearch({setRouteResult, setActiveLine})
 {
     const [startStation, setStartStation] = useState("");
     const [destinationStation, setDestinationStation] = useState("");
@@ -227,6 +227,11 @@ export default function StationSearch({setRouteResult})
             destinationStationSelected.id
         );
         setRouteResult(route);
+        
+        if(route)
+        {
+            setActiveLine("ALL");
+        }
     }
 
     return (
