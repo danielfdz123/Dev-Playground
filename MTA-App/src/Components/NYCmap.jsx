@@ -42,6 +42,7 @@ export default function NYCmap({ activeLine, setActiveLine, routeResult, setRout
 		{/* RENDERING STATIONS ~ passing values via props */}
         	<GetStations
           		activeLine = {activeLine}
+				routeResult = {routeResult}
           		showAllStationsAtZoom = {showAllStationsAtZoom}
           		A = {A}
           		rockaway_A = {rockaway_A}
