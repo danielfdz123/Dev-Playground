@@ -1,17 +1,53 @@
 import { MapMarker, MarkerContent, MarkerTooltip } from "@/components/UI/map";
+import { rockaway_A, lefferts_A } from "../Data/SubwayLines";
+
+function determine_A_Stations(routeResult, routeStops)
+{
+    const destinationId = routeResult.destinationStop.id;
+    const toFarRock = rockaway_A.some((station) => station.id === destinationId);
+    const toLefferts = lefferts_A.some((station) => station.id === destinationId);
+
+    const startId = routeResult.startStop.id;
+    const fromFarRock = rockaway_A.some((station) => station.id === startId);
+    const fromLefferts = lefferts_A.some((station) => station.id === startId);
+
+    let A_stations = routeStops;
+    
+    if(fromLefferts || toLefferts)
+    {
+        A_stations = A_stations.filter((station) => !rockaway_A.some((rockawayStation) => rockawayStation.id === station.id));
+    }
+
+    if(fromFarRock || toFarRock)
+    {
+        A_stations = A_stations.filter((station) => !lefferts_A.some((leffertsStation) => leffertsStation.id === station.id));
+    }
+    // Aqueduct Racetrack is uptown only, so hide it when going downtown to Far Rockaway
+    if(toFarRock)
+    {
+        A_stations = A_stations.filter((station) => station.id !== "Aqueduct");
+    }
+    return A_stations;
+}
+
 
 export default function GetSlicedStations({ routeResult })
 {
     // Retrieving props
-    const routeStops = [
+    let routeStops = [
         routeResult.startStop,
         ...routeResult.stops,
         routeResult.destinationStop
     ];
 
+    if(routeResult.startLine === "A")
+    {
+        routeStops = determine_A_Stations(routeResult, routeStops);
+    }
+
     function getMarkerClass(line)
     {   
-        if (["A", "C", "E"].includes(line)) return "stationMarker ACE";
+        if (["A", "A_Rockaway", "A_Lefferts", "C", "E"].includes(line)) return "stationMarker ACE";
         if (["B", "D", "F", "M"].includes(line)) return "stationMarker BDFM";
         if (["N", "Q", "R", "W"].includes(line)) return "stationMarker NQRW";
         if (["J", "Z"].includes(line)) return "stationMarker JZ";

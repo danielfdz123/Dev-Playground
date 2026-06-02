@@ -105,7 +105,6 @@ export default function LineInfo({ activeLine }) {
     
 
     {/* # OF STOPS/CARS INFORMATION depending on the toggled line*/}
-    const stopCount = stationName.length;
     const carLength = getCarLength(activeLine);
 
     {/* GETS FIRST/LAST STOP INFORMATION */}
@@ -120,7 +119,15 @@ export default function LineInfo({ activeLine }) {
 
     {/* Toggles direction */}
     const [direction, setDirection] = useState("downtown");
-    const displayedStops = direction === "downtown" ? [...stationName] : [...stationName].reverse();
+    let displayedStops = direction === "downtown" ? [...stationName] : [...stationName].reverse();
+    
+    // Aqueduct Racetrack on the (A) is the an "uptown only" station.
+    if (activeLine === "A" && direction === "downtown") 
+    {
+        displayedStops = displayedStops.filter((station) => station.name !== "Aqueduct Racetrack");
+    }
+
+    const stopCount = displayedStops.length;
     const destination = direction === "uptown" ? firstStop : lastStop;
     
     {/* Gives bullet a color when displaying stops */}

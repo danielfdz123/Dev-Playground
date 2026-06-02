@@ -84,17 +84,18 @@ function getStopsBetween(line, startId, destinationId)
 
     let stopsBetween;
 
-    // Southbound / forward
+    // Southbound trains
     if(lastIndex > firstIndex)
     {
         stopsBetween = lineStops.slice(firstIndex +1, lastIndex);
     }
-    // Northbound / reverse
+    // Northbound trains
     else
     {
         stopsBetween = lineStops.slice(lastIndex + 1, firstIndex).reverse();
     }
 
+    // Lists all the stations in their corresponding direction
     return stopsBetween.map((stop) => ({
         ...stop,
         minutesFromStart: Math.abs(stop.min - firstStop.min)
@@ -115,17 +116,21 @@ export function getDirectRoute(startStationName, startStationID, destinationStat
         const hasStartStation = lineStops.some((station) => station.id === startStationID);
         const hasDestinationStation = lineStops.some((station) => station.id === destinationID);
 
+        // Return results if a valid route is entered. Otherwise, return nothing
         if(hasStartStation && hasDestinationStation)
         {
+            const startStop = lineStops.find((station) => station.id === startStationID);
+            const destinationStop = lineStops.find((station) => station.id === destinationID);
             const trainBound = getDirection(line, startStationID, destinationID);
             const tripDuration = calculateTravelTime(line, startStationID, destinationID);
             const stopsInBetween = getStopsBetween(line, startStationID, destinationID);
 
             return {
-                isDirect: true,
                 startLine: formatSubwayLines(line),
                 startStation: startStationName,
                 destinationStation: destinationStationName,
+                startStop: startStop,
+                destinationStop: destinationStop,
                 direction: trainBound,
                 tripDuration: tripDuration,
                 stops: stopsInBetween

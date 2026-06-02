@@ -19,7 +19,7 @@ export default function GetStations({
 		// Returns color of marker depending on the line toggled (to match css)
 		const line = stationLines.includes(activeLine) ? activeLine : stationLines[0];
 		
-		if (["A", "C", "E"].includes(line)) return "stationMarker ACE";
+		if (["A", "A_Rockaway", "A_Lefferts", "C", "E"].includes(line)) return "stationMarker ACE";
     	if (["B", "D", "F", "M"].includes(line)) return "stationMarker BDFM";
     	if (["N", "Q", "R", "W"].includes(line)) return "stationMarker NQRW";
     	if (["J", "Z"].includes(line)) return "stationMarker JZ";
@@ -38,6 +38,10 @@ export default function GetStations({
 		{
             return "S";
         }
+		if(line === "A_Rockaway" || line === "A_Lefferts")
+    	{
+    	    return "A";
+    	}
         return line;
     }
 
@@ -62,7 +66,7 @@ export default function GetStations({
 						<MarkerContent>
                             <div className = {getMarkerClass(station.lines)} />
                         </MarkerContent>
-                        <MarkerTooltip> ({displayLines.join("/")}) {stationName} </MarkerTooltip>
+                        <MarkerTooltip> ({displayLines.join("/")}) {stationName} {stationName === "Aqueduct Racetrack" && "*Uptown Only*"} </MarkerTooltip>
                     </MapMarker>
                 );
 			})}    

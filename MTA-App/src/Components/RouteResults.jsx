@@ -3,6 +3,59 @@ import { SubwayLines, A, rockaway_A, lefferts_A, S_42ndStreet, FranklinAv_S, Roc
 
 import "./RouteResults.css";
 
+function determine_A_Direction(routeResult)
+{
+    const destinationId = routeResult.destinationStop.id;
+
+    const toFarRock = rockaway_A.some((station) => station.id === destinationId);
+    const toLefferts = lefferts_A.some((station) => station.id === destinationId);
+
+    if(toFarRock)
+    {
+        return "Far Rockaway-Mott Av";
+    }
+    else if(toLefferts)
+    {
+        return "Ozone Park-Lefferts Blvd";
+    }
+    else
+    {
+        return "Ozone Park-Lefferts Blvd / Far Rockaway-Mott Av";
+    }
+}
+
+function determine_A_Stops(routeResult, stops)
+{
+    const destinationId = routeResult.destinationStop.id;
+    const toFarRock = rockaway_A.some((station) => station.id === destinationId);
+    const toLefferts = lefferts_A.some((station) => station.id === destinationId);
+
+    const startId = routeResult.startStop.id;
+    const fromLefferts = lefferts_A.some((station) => station.id === startId);
+    const fromFarRock = rockaway_A.some((station) => station.id === startId);
+
+    let A_stops = stops;
+
+    if(toFarRock || fromFarRock)
+    {
+        A_stops = A_stops.filter((station) => !lefferts_A.some((leffertsStation) => leffertsStation.id === station.id));
+    }
+
+    if(toLefferts || fromLefferts)
+    {
+        A_stops = A_stops.filter((station) => !rockaway_A.some((rockawayStation) => rockawayStation.id === station.id));
+    }
+    
+    // Aqueduct Racetrack on the (A) is the a "uptown only" station.
+    if(toFarRock)
+    {
+        A_stops = A_stops.filter((station) => station.id !== "Aqueduct");
+    }
+
+    return A_stops;
+}
+
+
 export default function RouteResults({ routeResult })
 {
     const [showStops, setShowStops] = useState(false);
@@ -20,8 +73,17 @@ export default function RouteResults({ routeResult })
     const stops = routeResult.stops;                        // [Jamaica 179 -> 169 St -> ..... -> Coney Island]
     const tripDuration = routeResult.tripDuration           // Duration: 97 Min
 
+    let displayedStops = stops;
 
-    const stopCount = stops.length + 1;
+    // A train stuff
+    if(routeResult.startLine === "A")
+    {
+        displayedStops = determine_A_Stops(routeResult, stops);
+    }
+    const displayedDirection = startLine === "A" ? determine_A_Direction(routeResult) : direction;
+
+    const stopCount = displayedStops.length + 1;
+
     // Converts trip time to hours if necessary
     function calculateTripTime(tripTime)
     {
@@ -93,18 +155,6 @@ export default function RouteResults({ routeResult })
         return [...new Set(transfers)];
     }
 
-    {/* Gives bullet a color when displaying stops */}
-    function getBulletColor(startLine) {
-        if (["A", "C", "E"].includes(startLine)) return "#0039A6";
-        if (["B", "D", "F", "M"].includes(startLine)) return "#FF6319";
-        if (["N", "Q", "R", "W"].includes(startLine)) return "#FFCC00";
-        if (["J", "Z"].includes(startLine)) return "#8E5C33";
-        if (["1", "2", "3"].includes(startLine)) return "#D82233";
-        if (["4", "5", "6"].includes(startLine)) return "#009952";
-        if (startLine === "7") return "#9A38A1";
-        if (startLine === "G") return "#6CBE45";
-        if (["L", "S", "S_FranklinAv", "S_FarRock"].includes(startLine)) return "#808183";
-    }
     return (
         <>
             <div>
@@ -116,7 +166,7 @@ export default function RouteResults({ routeResult })
 
                 <div className = "startInfoDiv">
                     <img className = "trainLineImg" src={`/images/${startLine}.png`} alt={`${startLine} bullet`} />
-                    ➡️ <b> {direction} </b>
+                    ➡️ <b> {displayedDirection} </b>
                 </div>
 
                 {/* Connects start, middle stops, and destination with one vertical line */}
@@ -147,7 +197,7 @@ export default function RouteResults({ routeResult })
                         {showStops && (
                             <div className = "stopList">
                                 <div className = "routeStopsDiv">
-                                    {stops.map((station, index) => (
+                                    {displayedStops.map((station, index) => (
                                         <div className = "horizontalDiv" key={`${station.name}-${index}`}>
                                             <div>
                                                 <p className = "bulletPoints" style = {{color: getBulletColor(startLine)}}> ⦿ </p>

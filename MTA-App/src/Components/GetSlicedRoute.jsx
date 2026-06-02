@@ -1,4 +1,5 @@
 import { MapRoute } from "@/components/UI/map";
+import { rockaway_A, lefferts_A } from "../Data/SubwayLines";
 
 import { A_Path } from "../Data/A_Path";
 import { B_Path } from "../Data/B_Path";
@@ -79,9 +80,29 @@ export default function GetSlicedRoute({ routeResult })
         return fullPath.slice(destinationIndex, startIndex + 1).reverse();
     }
 
-    const A_main_sliced = slicePath(A_Line);
-    const A_FarRock_sliced = slicePath([...A_Line, ...A_RockawayLine]);
-    const A_Lefferts_sliced = slicePath([...A_Line, ...A_LeffertsLine]);
+    function determine_A_Route()
+    {
+        const destinationId = routeResult.destinationStop.id;
+        const toFarRock = rockaway_A.some((station) => station.id === destinationId);
+        const toLefferts = lefferts_A.some((station) => station.id === destinationId);
+
+        const startId = routeResult.startStop.id;
+        const fromLefferts = lefferts_A.some((station) => station.id === startId);
+        const fromFarRock = rockaway_A.some((station) => station.id === startId);
+
+        if(toFarRock || fromFarRock)
+        {
+            return [...A_Line, ...A_RockawayLine];
+        }
+        
+        if(toLefferts || fromLefferts)
+        {
+            return [...A_Line, ...A_LeffertsLine];
+        }
+        return A_Line;
+    }
+
+    const A_sliced = routeResult.startLine === "A" ? slicePath(determine_A_Route()) : [];
 
     return (
         <>
@@ -92,9 +113,8 @@ export default function GetSlicedRoute({ routeResult })
                     <MapRoute id = "a-rockaway" coordinates = {A_RockawayLine} color = {"#0039A6"} width = {3} opacity = {0.2} />
                     <MapRoute id = "a-lefferts" coordinates = {A_LeffertsLine} color = {"#0039A6"} width = {3} opacity = {0.2} />
 
-                    {A_main_sliced && (<MapRoute id = "a-main-sliced" coordinates = {A_main_sliced} color = {"#0039A6"} width = {3} opacity = {1} />)}
-                    {A_FarRock_sliced && (<MapRoute id = "a-rockaway-sliced" coordinates = {A_FarRock_sliced} color = {"#0039A6"} width = {3} opacity = {1} />)}
-                    {A_Lefferts_sliced && (<MapRoute id = "a-lefferts-sliced" coordinates = {A_Lefferts_sliced} color = {"#0039A6"} width = {3} opacity = {1} />)}
+                    {A_sliced && (<MapRoute id = "a-main-sliced" coordinates = {A_sliced} color = {"#0039A6"} width = {3} opacity = {1} />)}
+        
                 </>
             )}
 
