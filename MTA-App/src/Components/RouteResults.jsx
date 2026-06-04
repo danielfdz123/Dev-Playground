@@ -20,7 +20,7 @@ function determine_A_Direction(routeResult)
     }
     else
     {
-        return "Ozone Park-Lefferts Blvd / Far Rockaway-Mott Av";
+        return routeResult.direction;
     }
 }
 
