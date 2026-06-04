@@ -4,13 +4,26 @@ import { SubwayLines, A, rockaway_A, lefferts_A, S_42ndStreet, FranklinAv_S, Roc
 import "./RouteResults.css";
 
 function determine_A_Direction(routeResult)
-{
+{   
+    const startMin = routeResult.startStop.min;
+    const destinationMin = routeResult.destinationStop.min;
+    const rockawayBlvdMin = A.find((station) => station.id === "RockawayBlvd")?.min;
+
+    if(destinationMin < startMin)
+    {
+        return "Inwood-207 St";
+    }
+
     const destinationId = routeResult.destinationStop.id;
 
     const toFarRock = rockaway_A.some((station) => station.id === destinationId);
     const toLefferts = lefferts_A.some((station) => station.id === destinationId);
 
-    if(toFarRock)
+    if(destinationMin <= rockawayBlvdMin)
+    {
+        return "Ozone Park-Lefferts Blvd / Far Rockaway-Mott Av";
+    }
+    else if(toFarRock)
     {
         return "Far Rockaway-Mott Av";
     }
@@ -18,10 +31,8 @@ function determine_A_Direction(routeResult)
     {
         return "Ozone Park-Lefferts Blvd";
     }
-    else
-    {
-        return routeResult.direction;
-    }
+    return routeResult.direction;
+    
 }
 
 function determine_A_Stops(routeResult, stops)
