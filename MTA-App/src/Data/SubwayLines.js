@@ -555,7 +555,7 @@ export const SubwayLines = {
         { name: "66 St-Lincoln Center", id: "LincolnCenter", lat: 40.773645976828895, lon: -73.98221643079002, min: 33},
         { name: "59 St-Columbus Circle", id: "ColumbusCircle", lat: 40.76807323003814, lon: -73.98189785979906, min: 35},
         { name: "50 St" , id: "1_50St", lat: 40.76144567980046, lon: -73.98409757186226, min: 37},
-        { name: "Times Sq-42 St", id: "42ndStreet", lat: 40.755376016329116, lon: -73.98744527105868, min: 38},
+        { name: "Times Sq-42 St", id: "42ndStreet", lat: 40.755376016329116, lon: -73.98744527105868, min: 39},
         { name: "34 St-Penn Station", id: "PennStation", lat: 40.7510018609179, lon: -73.99062381371186, min: 40},
         { name: "28 St", id: "1_28St", lat: 40.74724217719468, lon: -73.99336130941542, min: 41},
         { name: "23 St", id: "1_23St", lat: 40.74410650839967, lon: -73.995656287291, min: 42},
