@@ -84,6 +84,7 @@ export default function RouteResults({ routeResult })
     const stops = routeResult.stops;                        // [Jamaica 179 -> 169 St -> ..... -> Coney Island]
     const tripDuration = routeResult.tripDuration           // Duration: 97 Min
 
+    const sameEtaLines = routeResult.sameEtaLines || [];
     let displayedStops = stops;
 
     // A train stuff
@@ -168,82 +169,92 @@ export default function RouteResults({ routeResult })
 
     return (
         <>
-            <div>
-                <div className = "routeInfoDiv">
-                    <p className = "routeInfoText">
-                        🕑 {calculateTripTime(tripDuration)}
-                    </p>
+            <div className = "routeInfoDiv">
+                
+                <img className = "trainLineImg" src={`/images/${startLine}.png`} alt={`${startLine} bullet`} />
+                <div className = "routeHeading">
+                    <p className = "tripTime"> 
+                        <span> 🕑 {calculateTripTime(tripDuration)} </span>
+                        
+                        {sameEtaLines.length > 0 && (
+                            <span className = "sameEtaDiv"> 
+
+                                <span className = "sameEtaText"> OR: </span>
+                                <span className = "sameEtaLines"> 
+                                    {sameEtaLines.map((line) => (
+                                        <img className = "sameEtaImg" key = {line} src = {`/images/${line}.png`} alt = {`${line} bullet`}/>
+                                    ))}
+                                </span>
+                            </span>
+                        )}
+                    </p> 
+                    <p className = "routeInfoText"> ➤ <b> {displayedDirection} </b>   </p>
                 </div>
+            </div>
 
-                <div className = "startInfoDiv">
-                    <img className = "trainLineImg" src={`/images/${startLine}.png`} alt={`${startLine} bullet`} />
-                    ➡️ <b> {displayedDirection} </b>
-                </div>
+            {/* Connects start, middle stops, and destination with one vertical line */}
+            <div className = "routeLineDiv" style = {{"--routeColor": getBulletColor(startLine)}}>
+                <div className = "routeLineContent">
 
-                {/* Connects start, middle stops, and destination with one vertical line */}
-                <div className = "routeLineDiv" style = {{"--routeColor": getBulletColor(startLine)}}>
-                    <div className = "routeLineContent">
-
-                        {/* Start station */}
-                        <div className = "startStuff">
-                            <div>
-                                <p className = "startBullet" style = {{color: getBulletColor(startLine)}}> ⦿ </p>
-                            </div>
-
-                            <div>
-                                <p className = "userInputStations"> {startStation} </p>
-                            </div>
+                    {/* Start station */}
+                    <div className = "startStuff">
+                        <div>
+                            <p className = "startBullet" style = {{color: getBulletColor(startLine)}}> ⦿ </p>
                         </div>
 
-                        {/* Hides button if the destination is the next stop over */}
-                        {stopCount === 1 ? (
-                            <p className = "stopsDropdownButton"> • {calculateTripTime(tripDuration)} {`(${calculateStopCount(stopCount)})`} </p>
-                        ) : (
-                            <button className = "stopsDropdownButton" onClick = {() => setShowStops(!showStops)}>
-                                <span className = {showStops ? "dropdownArrow open" : "dropdownArrow"}> ❯ </span> {calculateTripTime(tripDuration)} {`(${calculateStopCount(stopCount)})`}
-                            </button>
-                        )}
+                        <div>
+                            <p className = "userInputStations"> {startStation} </p>
+                        </div>
+                    </div>
 
-                        {/* Shows all the stops in between the start and destination */}
-                        {showStops && (
-                            <div className = "stopList">
-                                <div className = "routeStopsDiv">
-                                    {displayedStops.map((station, index) => (
-                                        <div className = "horizontalDiv" key={`${station.name}-${index}`}>
-                                            <div>
-                                                <p className = "bulletPoints" style = {{color: getBulletColor(startLine)}}> ⦿ </p>
-                                            </div>
+                    {/* Hides button if the destination is the next stop over */}
+                    {stopCount === 1 ? (
+                        <p className = "stopsDropdownButton"> • {calculateTripTime(tripDuration)} {`(${calculateStopCount(stopCount)})`} </p>
+                    ) : (
+                        <button className = "stopsDropdownButton" onClick = {() => setShowStops(!showStops)}>
+                            <span className = {showStops ? "dropdownArrow open" : "dropdownArrow"}> ❯ </span> {calculateTripTime(tripDuration)} {`(${calculateStopCount(stopCount)})`}
+                        </button>
+                    )}
 
-                                            <div>
-                                                <p className = "stopName">
-                                                    {station.name} <span> (+{station.minutesFromStart} min)</span>
-                                                </p>
-                                            </div>
-
-                                            <div className = "stationTransfers">
-                                                {/* CASE: Big stations show MTA logo instead of x amount of subway logos */}
-                                                {["42ndStreet", "Barclays", "MedgarEvers"].includes(station.id) ? (
-                                                    <img src = "/images/MTA.png" /> 
-                                                ) : (
-                                                getTransferLines(station.id, startLine).map((line) => (
-                                                   <img key={line} src = {`/images/${line}.png`} />
-                                                )))}  
-                                            </div>
+                    {/* Shows all the stops in between the start and destination */}
+                    {showStops && (
+                        <div className = "stopList">
+                            <div className = "routeStopsDiv">
+                                
+                                {displayedStops.map((station, index) => (
+                                    <div className = "horizontalDiv" key={`${station.name}-${index}`}>
+                                        <div>
+                                            <p className = "bulletPoints" style = {{color: getBulletColor(startLine)}}> ⦿ </p>
                                         </div>
-                                    ))}
-                                </div>
-                            </div>
-                        )}
+                                        <div>
+                                            <p className = "stopName">
+                                                {station.name} <span> (+{station.minutesFromStart} min)</span>
+                                            </p>
+                                        </div>
 
-                        {/* Destination station */}
-                        <div className = "destinationStuff">
-                            <div>
-                                <p className = "startBullet" style = {{color: getBulletColor(startLine)}}> ⦿ </p>
+                                        <div className = "stationTransfers">
+                                            {/* CASE: Big stations show MTA logo instead of x amount of subway logos */}
+                                            {["42ndStreet", "Barclays", "MedgarEvers"].includes(station.id) ? (
+                                                <img src = "/images/MTA.png" /> 
+                                            ) : (
+                                            getTransferLines(station.id, startLine).map((line) => (
+                                               <img key={line} src = {`/images/${line}.png`} />
+                                            )))}  
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
+                        </div>
+                    )}
 
-                            <div>
-                                <p className = "userInputStations"> {destination} </p>
-                            </div>
+                    {/* Destination station */}
+                    <div className = "destinationStuff">
+                        <div>
+                               <p className = "startBullet" style = {{color: getBulletColor(startLine)}}> ⦿ </p>
+                        </div>
+
+                        <div>
+                            <p className = "userInputStations"> {destination} </p>
                         </div>
                     </div>
                 </div>

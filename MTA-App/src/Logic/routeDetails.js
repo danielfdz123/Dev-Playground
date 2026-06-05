@@ -109,6 +109,8 @@ export function getDirectRoute(startStationName, startStationID, destinationStat
         ...Object.keys(SubwayLines), "A", "S", "S_FranklinAv", "S_FarRock"
     ];
 
+    const possibleRoutes = [];
+
     for(const line of allLines)
     {
         const lineStops = getStops(line);
@@ -125,18 +127,38 @@ export function getDirectRoute(startStationName, startStationID, destinationStat
             const tripDuration = calculateTravelTime(line, startStationID, destinationID);
             const stopsInBetween = getStopsBetween(line, startStationID, destinationID);
 
-            return {
+            possibleRoutes.push({
                 startLine: formatSubwayLines(line),
-                startStation: startStationName,
-                destinationStation: destinationStationName,
+                startStation: startStop.name,
+                destinationStation: destinationStop.name,
+                searchedStartStation: startStationName,
+                searchedDestinationStation: destinationStationName,
                 startStop: startStop,
                 destinationStop: destinationStop,
                 direction: trainBound,
                 tripDuration: tripDuration,
                 stops: stopsInBetween
-            };
+            });
         }
     }
 
-    return null;
+    let fastestRoute = possibleRoutes[0];
+    for(let i = 1; i < possibleRoutes.length; i++)
+    {
+        if(possibleRoutes[i].tripDuration < fastestRoute.tripDuration)
+        {
+            fastestRoute = possibleRoutes[i];
+        }
+    }
+
+    const sameEtaLines = possibleRoutes
+        .filter((route) => route.tripDuration === fastestRoute.tripDuration && route.startLine !== fastestRoute.startLine)
+        .map((route) => route.startLine);
+
+    console.log("sameEtaLines:", sameEtaLines);
+
+    return {
+        ...fastestRoute,
+        sameEtaLines: [...new Set(sameEtaLines)]
+    }
 }

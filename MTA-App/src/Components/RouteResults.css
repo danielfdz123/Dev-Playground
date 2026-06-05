@@ -2,19 +2,74 @@
     display: flex;
     align-items: center;
     border-bottom: 0.3vh solid #ada2a2;
-    justify-content: center;
+}
+
+.routeHeading {
+    width: 80%;
+}
+
+.tripTime {
+    margin: 0;
+    font-weight: 500;
+    font-size: clamp(1.65vh, 1.65vh, 1.8vh);
+}
+
+.sameEtaDiv {
+    display: flex;
     align-items: center;
-    flex-direction: column;
-    text-align: center;
+    gap: 0.4vh;
+    margin-left: auto;
+    font-size: 1.6vh;
+    white-space: nowrap;
+}
+
+.sameEtaText {
+    font-size: 1.4vh;
+    gap: 0;
+    text-decoration: underline;
+}
+
+.sameEtaLines {
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+
+.sameEtaImg {
+    font-size: 1.5vh;
+    width: 2.5vh;
+    height: 2.5vh;
+    text-decoration: underline;
+    margin: 0;
+    padding: 0;
 }
 
 .routeInfoText {
     margin: 0 auto;
-    font-size: 1.9vh;
     font-weight: 500;
-    margin-top: 1vh;
-    margin-bottom: 0.5vh;
+    font-size: clamp(1.65vh, 1.65vh, 1.8vh);
 }
+
+
+
+
+
+
+.tripTime {
+    display: flex;
+    width: 100%;
+}
+
+.sameEtaDiv {
+    display: flex;
+    align-items: center;
+    gap: 0.4vh;
+    margin-left: auto;
+    font-size: 1.6vh;
+    white-space: nowrap;
+}
+
+
 
 .startInfoDiv {
     display: flex;
@@ -33,7 +88,7 @@
     scrollbar-width: none;
     -ms-overflow-style: none;
     min-height: 2vh;
-    max-height: 54.4vh;
+    max-height: 59vh;
 }
 
 .routeLineDiv::-webkit-scrollbar {
