@@ -1,0 +1,91 @@
+body {
+  	margin: 0 auto;
+	min-height: 100vh;
+	max-width: 70vh;
+	background-image: url("https://historyuk.s3.eu-west-2.amazonaws.com/s3fs-public/2022-11/shutterstock_2190840355-min.jpg");
+	background-size: cover;
+  	background-position: center;
+  	background-repeat: no-repeat;
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+
+/* Inside sign in/main page */
+.app {
+  	min-height: 100vh;
+  	display: flex;
+  	justify-content: center;
+  	align-items: center;
+}
+
+.content {
+  	background-color: rgba(235, 235, 235, 0.788);
+  	padding: 40px;
+  	border-radius: 20px;
+  	text-align: center;
+}
+
+.content p {
+	font-size: 2vh;
+}
+
+.title {
+	font-size: 5vh;
+}
+
+.button {
+	font-size: 1.5vh;
+	background-color: rgba(137, 255, 137, 0.596);
+	border-radius: 3vh;
+	border: 0.3vh solid black;
+}
+
+.intro {
+	font-size: 2.2vh;
+	text-decoration: underline;
+}
+
+.dropdown {
+	font-size: 1.5vh;
+	padding: 0.5vh;
+	border-radius: 1vh;
+}
+
+.settingsLink {
+	font-size: 1.4vh;
+	cursor: pointer;
+	color: rgb(16, 16, 255);
+	text-decoration: underline;
+}
+
+/* Inside advanced settings */
+.textRow {
+  	display: flex;
+  	align-items: center;
+  	gap: 0.7vh;
+  	justify-content: center;
+	max-height: 2vh;
+}
+
+.textRow p {
+	font-size: 2vh;
+}
+
+.favoritePicker {
+	font-size: 1.8vh;
+}
+
+.favoriteTeams {
+	margin: 1vh;
+
+	display: flex;
+  	align-items: center;
+  	gap: 0.7vh;
+  	justify-content: center;
+}
+
+.removeFavorite {
+	border-radius: 1vh;
+	border: 1px solid black;
+	padding: 0.4vh;
+}
