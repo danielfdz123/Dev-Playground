@@ -520,5 +520,119 @@ export const matches = [
         location: "Dallas",
         start: "2026-06-28T02:00:00Z",
         end: "2026-06-28T04:00:00Z"
+    },
+
+    // ROUND OF 32:
+    {
+        title: "⚽ RSA vs CAN",
+        description: "South Africa vs Canada",
+        location: "Los Angeles",
+        start: "2026-06-28T19:00:00Z",
+        end: "2026-06-28T21:00:00Z"
+    },
+    {
+        title: "⚽ BRA vs JPN",
+        description: "Brazil vs Japan",
+        location: "Houston",
+        start: "2026-06-29T17:00:00Z",
+        end: "2026-06-29T19:00:00Z"
+    },
+    {
+        title: "⚽ GER vs PAR",
+        description: "Germany vs Paraguay",
+        location: "Boston",
+        start: "2026-06-29T20:30:00Z",
+        end: "2026-06-29T22:30:00Z"
+    },
+    {
+        title: "⚽ NED vs MAR",
+        description: "Netherlands vs Morocco",
+        location: "Monterrey",
+        start: "2026-06-30T01:00:00Z",
+        end: "2026-06-30T03:00:00Z"
+    },
+    {
+        title: "⚽ FRA vs SWE",
+        description: "France vs Sweden",
+        location: "New York/New Jersey",
+        start: "2026-06-30T19:00:00Z",
+        end: "2026-06-30T21:00:00Z"
+    },
+    {
+        title: "⚽ CIV vs NOR",
+        description: "Ivory Coast vs Norway",
+        location: "Dallas",
+        start: "2026-06-30T22:00:00Z",
+        end: "2026-07-01T00:00:00Z"
+    },
+    {
+        title: "⚽ MEX vs ECU",
+        description: "Mexico vs Ecuador",
+        location: "Mexico City",
+        start: "2026-07-01T01:00:00Z",
+        end: "2026-07-01T03:00:00Z"
+    },
+    {
+        title: "⚽ BEL vs SEN",
+        description: "Belgium vs Senegal",
+        location: "Atlanta",
+        start: "2026-07-01T19:00:00Z",
+        end: "2026-07-01T21:00:00Z"
+    },
+    {
+        title: "⚽ ENG vs COD",
+        description: "England vs DR Congo",
+        location: "Philadelphia",
+        start: "2026-07-01T22:00:00Z",
+        end: "2026-07-02T00:00:00Z"
+    },
+    {
+        title: "⚽ USA vs BIH",
+        description: "United States vs Bosnia and Herzegovina",
+        location: "Seattle",
+        start: "2026-07-02T01:00:00Z",
+        end: "2026-07-02T03:00:00Z"
+    },
+    {
+        title: "⚽ ESP vs AUT",
+        description: "Spain vs Austria",
+        location: "Los Angeles",
+        start: "2026-07-02T19:00:00Z",
+        end: "2026-07-02T21:00:00Z"
+    },
+    {
+        title: "⚽ POR vs CRO",
+        description: "Portugal vs Croatia",
+        location: "Miami",
+        start: "2026-07-03T00:00:00Z",
+        end: "2026-07-03T02:00:00Z"
+    },
+    {
+        title: "⚽ SUI vs ALG",
+        description: "Switzerland vs Algeria",
+        location: "Vancouver",
+        start: "2026-07-03T03:00:00Z",
+        end: "2026-07-03T05:00:00Z"
+    },
+    {
+        title: "⚽ AUS vs EGY",
+        description: "Australia vs Egypt",
+        location: "Kansas City",
+        start: "2026-07-03T19:00:00Z",
+        end: "2026-07-03T21:00:00Z"
+    },
+    {
+        title: "⚽ ARG vs CPV",
+        description: "Argentina vs Cape Verde",
+        location: "Dallas",
+        start: "2026-07-03T22:00:00Z",
+        end: "2026-07-04T00:00:00Z"
+    },
+    {
+        title: "⚽ COL vs GHA",
+        description: "Colombia vs Ghana",
+        location: "Miami",
+        start: "2026-07-04T01:00:00Z",
+        end: "2026-07-04T03:00:00Z"
     }
 ]
