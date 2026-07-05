@@ -552,18 +552,18 @@ export const matches = [
         end: "2026-06-30T03:00:00Z"
     },
     {
-        title: "⚽ FRA vs SWE",
-        description: "France vs Sweden",
-        location: "New York/New Jersey",
-        start: "2026-06-30T19:00:00Z",
-        end: "2026-06-30T21:00:00Z"
-    },
-    {
         title: "⚽ CIV vs NOR",
         description: "Ivory Coast vs Norway",
         location: "Dallas",
-        start: "2026-06-30T22:00:00Z",
-        end: "2026-07-01T00:00:00Z"
+        start: "2026-06-30T17:00:00Z",
+        end: "2026-06-30T19:00:00Z"
+    },
+    {
+        title: "⚽ FRA vs SWE",
+        description: "France vs Sweden",
+        location: "New York/New Jersey",
+        start: "2026-06-30T21:00:00Z",
+        end: "2026-06-30T23:00:00Z"
     },
     {
         title: "⚽ MEX vs ECU",
@@ -573,25 +573,25 @@ export const matches = [
         end: "2026-07-01T03:00:00Z"
     },
     {
-        title: "⚽ BEL vs SEN",
-        description: "Belgium vs Senegal",
-        location: "Atlanta",
-        start: "2026-07-01T19:00:00Z",
-        end: "2026-07-01T21:00:00Z"
-    },
-    {
         title: "⚽ ENG vs COD",
         description: "England vs DR Congo",
-        location: "Philadelphia",
-        start: "2026-07-01T22:00:00Z",
-        end: "2026-07-02T00:00:00Z"
+        location: "Atlanta",
+        start: "2026-07-01T16:00:00Z",
+        end: "2026-07-01T18:00:00Z"
+    },
+    {
+        title: "⚽ BEL vs SEN",
+        description: "Belgium vs Senegal",
+        location: "Seattle",
+        start: "2026-07-01T20:00:00Z",
+        end: "2026-07-01T22:00:00Z"
     },
     {
         title: "⚽ USA vs BIH",
         description: "United States vs Bosnia and Herzegovina",
-        location: "Seattle",
-        start: "2026-07-02T01:00:00Z",
-        end: "2026-07-02T03:00:00Z"
+        location: "San Francisco Bay Area",
+        start: "2026-07-02T00:00:00Z",
+        end: "2026-07-02T02:00:00Z"
     },
     {
         title: "⚽ ESP vs AUT",
@@ -603,9 +603,9 @@ export const matches = [
     {
         title: "⚽ POR vs CRO",
         description: "Portugal vs Croatia",
-        location: "Miami",
-        start: "2026-07-03T00:00:00Z",
-        end: "2026-07-03T02:00:00Z"
+        location: "Toronto",
+        start: "2026-07-02T23:00:00Z",
+        end: "2026-07-03T01:00:00Z"
     },
     {
         title: "⚽ SUI vs ALG",
@@ -617,22 +617,142 @@ export const matches = [
     {
         title: "⚽ AUS vs EGY",
         description: "Australia vs Egypt",
-        location: "Kansas City",
-        start: "2026-07-03T19:00:00Z",
-        end: "2026-07-03T21:00:00Z"
+        location: "Dallas",
+        start: "2026-07-03T18:00:00Z",
+        end: "2026-07-03T20:00:00Z"
     },
     {
         title: "⚽ ARG vs CPV",
         description: "Argentina vs Cape Verde",
-        location: "Dallas",
+        location: "Miami",
         start: "2026-07-03T22:00:00Z",
         end: "2026-07-04T00:00:00Z"
     },
     {
         title: "⚽ COL vs GHA",
         description: "Colombia vs Ghana",
-        location: "Miami",
-        start: "2026-07-04T01:00:00Z",
-        end: "2026-07-04T03:00:00Z"
-    }
+        location: "Kansas City",
+        start: "2026-07-04T01:30:00Z",
+        end: "2026-07-04T03:30:00Z"
+    },
+    // Round of 16
+    {
+        title: "⚽ CAN vs MAR",
+        description: "Canada vs Morocco",
+        location: "Houston",
+        start: "2026-07-04T17:00:00Z",
+        end: "2026-07-04T19:00:00Z"
+    },
+    {
+        title: "⚽ PAR vs FRA",
+        description: "Paraguay vs France",
+        location: "Philadelphia",
+        start: "2026-07-04T21:00:00Z",
+        end: "2026-07-04T23:00:00Z"
+    },
+    {
+        title: "⚽ BRA vs NOW",
+        description: "Brazil vs Norway",
+        location: "New York/New Jersey",
+        start: "2026-07-05T20:00:00Z",
+        end: "2026-07-05T22:00:00Z"
+    },
+    {
+        title: "⚽ MEX vs ENG",
+        description: "Mexico vs England",
+        location: "Mexico City",
+        start: "2026-07-06T00:00:00Z",
+        end: "2026-07-06T02:00:00Z"
+    },
+    {
+        title: "⚽ POR vs ESP",
+        description: "Portugal vs Spain",
+        location: "Dallas",
+        start: "2026-07-06T19:00:00Z",
+        end: "2026-07-06T21:00:00Z"
+    },
+    {
+        title: "⚽ USA vs BEL",
+        description: "United States vs Belgium",
+        location: "Seattle",
+        start: "2026-07-07T00:00:00Z",
+        end: "2026-07-07T02:00:00Z"
+    },
+    {
+        title: "⚽ ARG vs EGY",
+        description: "Argentina vs Egypt",
+        location: "Atlanta",
+        start: "2026-07-07T16:00:00Z",
+        end: "2026-07-07T18:00:00Z"
+    },
+    {
+        title: "⚽ SUI vs COL",
+        description: "Switzerland vs Colombia",
+        location: "Vancouver",
+        start: "2026-07-07T20:00:00Z",
+        end: "2026-07-07T22:00:00Z"
+    },
+    // Quarterfinals
+    {
+        title: "⚽ FRA vs MAR",
+        description: "France vs Morocco",
+        location: "Boston",
+        start: "2026-07-09T20:00:00Z",
+        end: "2026-07-09T22:00:00Z"
+    },
+    // {
+    //     title: "⚽ ",
+    //     description: "",
+    //     location: "Los Angeles",
+    //     start: "2026-07-10T19:00:00Z",
+    //     end: "2026-07-10T21:00:00Z"
+    // },
+    // {
+    //     title: "⚽ ",
+    //     description: "",
+    //     location: "Miami",
+    //     start: "2026-07-11T21:00:00Z",
+    //     end: "2026-07-11T23:00:00Z"
+    // },
+    // {
+    //     title: "⚽ ",
+    //     description: "",
+    //     location: "Kansas City",
+    //     start: "2026-07-12T01:00:00Z",
+    //     end: "2026-07-12T03:00:00Z"
+    // },
+
+    // Semifinals
+    // {
+    //     title: "⚽ ",
+    //     description: "",
+    //     location: "",
+    //     start: "2026-07-04T19:00:00Z",
+    //     end: "2026-07-04T21:00:00Z"
+    // },
+    // {
+    //     title: "⚽ ",
+    //     description: "",
+    //     location: "",
+    //     start: "2026-07-15T19:00:00Z",
+    //     end: "2026-07-15T21:00:00Z"
+    // },
+
+    // Third Place
+    // {
+    //     title: "⚽ ",
+    //     description: "",
+    //     location: "",
+    //     start: "2026-07-18T21:00:00Z",
+    //     end: "2026-07-18T23:00:00Z"
+    // },
+
+    // Final
+    // {
+    //     title: "⚽ ",
+    //     description: "",
+    //     location: "",
+    //     start: "2026-07-19T19:00:00Z",
+    //     end: "2026-07-19T21:00:00Z"
+    // },
 ]
