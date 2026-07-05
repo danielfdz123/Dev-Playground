@@ -51,6 +51,61 @@ body {
 	border-radius: 1vh;
 }
 
+.Tomato {
+  	background-color: #d50000;
+  	color: white;
+}
+
+.Tangerine {
+  	background-color: #ff8c00;
+  	color: white;
+}
+
+.Banana {
+  	background-color: #ffd700;
+  	color: black;
+}
+
+.Basil {
+  	background-color: #32cd32;
+  	color: white;
+}
+
+.Sage {
+  	background-color: #98fb98;
+  	color: black;
+}
+
+.Peacock {
+  	background-color: #008080;
+  	color: white;
+}
+
+.Blueberry {
+  	background-color: #4169e1;
+  	color: white;
+}
+
+.Lavender {
+  	background-color: #e6e6fa;
+  	color: black;
+}
+
+.Grape {
+  	background-color: #9370db;
+  	color: white;
+}
+
+.Flamingo {
+  	background-color: #fc8eac;
+  	color: black;
+}
+
+.Graphite {
+  	background-color: #36454f;
+  	color: white;
+}
+
 .settingsLink {
 	font-size: 1.4vh;
 	cursor: pointer;

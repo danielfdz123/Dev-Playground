@@ -76,17 +76,17 @@ function App() {
             			<p> • Pick a color for all World Cup matches! </p>
 
             			<select className = "dropdown" value = {matchColor} onChange = {(event) => setMatchColor(event.target.value)}>
-              				<option value = "Tomato"> Tomato</option>
-              				<option value = "Tangerine"> Tangerine </option>
-              				<option value = "Banana"> Banana </option>
-              				<option value = "Basil"> Basil </option>
-              				<option value = "Sage"> Sage </option>
-              				<option value = "Peacock"> Peacock </option>
-              				<option value = "Blueberry"> Blueberry </option>
-              				<option value = "Lavender"> Lavender </option>
-              				<option value = "Grape"> Grape </option>
-              				<option value = "Flamingo"> Flamingo </option>
-              				<option value = "Graphite"> Graphite </option>
+              				<option value = "Tomato" className = "Tomato"> Tomato</option>
+              				<option value = "Tangerine" className = "Tangerine"> Tangerine </option>
+              				<option value = "Banana" className = "Banana"> Banana </option>
+              				<option value = "Basil" className = "Basil"> Basil </option>
+              				<option value = "Sage" className = "Sage"> Sage </option>
+              				<option value = "Peacock" className = "Peacock"> Peacock </option>
+              				<option value = "Blueberry" className = "Blueberry"> Blueberry </option>
+              				<option value = "Lavender" className = "Lavender"> Lavender </option>
+              				<option value = "Grape" className = "Grape"> Grape </option>
+              				<option value = "Flamingo" className = "Flamingo"> Flamingo </option>
+              				<option value = "Graphite" className = "Graphite"> Graphite </option>
             			</select>
           			</div>
 
@@ -120,17 +120,17 @@ function App() {
 					{/* Color menu for their favorite teams */}
           			<label className = "favoritePicker"> Unique Color: </label>
           			<select className = "dropdown" value = {favoriteCountryColor} onChange = {(event) => setFavoriteCountryColor(event.target.value)}>
-            			<option value = "Tomato"> Tomato </option>
-            			<option value = "Tangerine"> Tangerine </option>
-            			<option value = "Banana"> Banana </option>
-            			<option value = "Basil"> Basil </option>
-            			<option value = "Sage"> Sage </option>
-            			<option value = "Peacock"> Peacock </option>
-            			<option value = "Blueberry"> Blueberry </option>
-            			<option value = "Lavender"> Lavender </option>
-            			<option value = "Grape"> Grape </option>
-            			<option value = "Flamingo"> Flamingo </option>
-            			<option value = "Graphite"> Graphite </option>
+            			<option value = "Tomato" className = "Tomato"> Tomato</option>
+              			<option value = "Tangerine" className = "Tangerine"> Tangerine </option>
+              			<option value = "Banana" className = "Banana"> Banana </option>
+              			<option value = "Basil" className = "Basil"> Basil </option>
+              			<option value = "Sage" className = "Sage"> Sage </option>
+              			<option value = "Peacock" className = "Peacock"> Peacock </option>
+              			<option value = "Blueberry" className = "Blueberry"> Blueberry </option>
+              			<option value = "Lavender" className = "Lavender"> Lavender </option>
+              			<option value = "Grape" className = "Grape"> Grape </option>
+              			<option value = "Flamingo" className = "Flamingo"> Flamingo </option>
+              			<option value = "Graphite" className = "Graphite"> Graphite </option>
           			</select>
 
           			<p> • Click "Add Games" when finished! </p>
@@ -146,6 +146,7 @@ function App() {
     	);
   	}
 
+	// Main page after signing in. Color choice for ALL games, no advanced settings
   	return (
     	<div className = "app">
       		<div className = "content">
@@ -163,17 +164,17 @@ function App() {
 					
 					{/* Color menu for ALL world cup matches */}
             		<select className = "dropdown" value = {matchColor} onChange = {(event) => setMatchColor(event.target.value)}>
-              			<option value = "Tomato"> Tomato </option>
-              			<option value = "Tangerine"> Tangerine </option>
-              			<option value = "Banana"> Banana </option>
-              			<option value = "Basil"> Basil </option>
-              			<option value = "Sage"> Sage </option>
-              			<option value = "Peacock"> Peacock </option>
-              			<option value = "Blueberry"> Blueberry </option>
-              			<option value = "Lavender"> Lavender </option>
-              			<option value = "Grape"> Grape </option>
-              			<option value = "Flamingo"> Flamingo </option>
-              			<option value = "Graphite"> Graphite </option>
+              			<option value = "Tomato" className = "Tomato"> Tomato</option>
+              			<option value = "Tangerine" className = "Tangerine"> Tangerine </option>
+              			<option value = "Banana" className = "Banana"> Banana </option>
+              			<option value = "Basil" className = "Basil"> Basil </option>
+              			<option value = "Sage" className = "Sage"> Sage </option>
+              			<option value = "Peacock" className = "Peacock"> Peacock </option>
+              			<option value = "Blueberry" className = "Blueberry"> Blueberry </option>
+              			<option value = "Lavender" className = "Lavender"> Lavender </option>
+              			<option value = "Grape" className = "Grape"> Grape </option>
+              			<option value = "Flamingo" className = "Flamingo"> Flamingo </option>
+              			<option value = "Graphite" className = "Graphite"> Graphite </option>
             		</select>
 					
 					{/* Allows users to adjust color settings */}
