@@ -700,27 +700,27 @@ export const matches = [
         start: "2026-07-09T20:00:00Z",
         end: "2026-07-09T22:00:00Z"
     },
-    // {
-    //     title: "⚽ ",
-    //     description: "",
-    //     location: "Los Angeles",
-    //     start: "2026-07-10T19:00:00Z",
-    //     end: "2026-07-10T21:00:00Z"
-    // },
-    // {
-    //     title: "⚽ ",
-    //     description: "",
-    //     location: "Miami",
-    //     start: "2026-07-11T21:00:00Z",
-    //     end: "2026-07-11T23:00:00Z"
-    // },
-    // {
-    //     title: "⚽ ",
-    //     description: "",
-    //     location: "Kansas City",
-    //     start: "2026-07-12T01:00:00Z",
-    //     end: "2026-07-12T03:00:00Z"
-    // },
+    {
+        title: "⚽ ESP vs BEL",
+        description: "Spain vs Belgium",
+        location: "Los Angeles",
+        start: "2026-07-10T19:00:00Z",
+        end: "2026-07-10T21:00:00Z"
+    },
+    {
+        title: "⚽ NOR vs ENG",
+        description: "Norway vs England",
+        location: "Miami",
+        start: "2026-07-11T21:00:00Z",
+        end: "2026-07-11T23:00:00Z"
+    },
+    {
+        title: "⚽ ARG vs SUI",
+        description: "Argentina vs Switzerland",
+        location: "Kansas City",
+        start: "2026-07-12T01:00:00Z",
+        end: "2026-07-12T03:00:00Z"
+    },
 
     // Semifinals
     // {
