@@ -723,20 +723,20 @@ export const matches = [
     },
 
     // Semifinals
-    // {
-    //     title: "⚽ ",
-    //     description: "",
-    //     location: "",
-    //     start: "2026-07-04T19:00:00Z",
-    //     end: "2026-07-04T21:00:00Z"
-    // },
-    // {
-    //     title: "⚽ ",
-    //     description: "",
-    //     location: "",
-    //     start: "2026-07-15T19:00:00Z",
-    //     end: "2026-07-15T21:00:00Z"
-    // },
+    {
+        title: "⚽ FRA vs ESP",
+        description: "France vs Spain",
+        location: "Dallas",
+        start: "2026-07-14T19:00:00Z",
+        end: "2026-07-14T21:00:00Z"
+    },
+    {
+        title: "⚽ ENG vs ARG",
+        description: "England vs Argentina",
+        location: "Atlanta",
+        start: "2026-07-15T19:00:00Z",
+        end: "2026-07-15T21:00:00Z"
+    },
 
     // Third Place
     // {
