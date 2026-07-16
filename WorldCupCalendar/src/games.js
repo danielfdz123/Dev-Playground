@@ -739,20 +739,20 @@ export const matches = [
     },
 
     // Third Place
-    // {
-    //     title: "⚽ ",
-    //     description: "",
-    //     location: "",
-    //     start: "2026-07-18T21:00:00Z",
-    //     end: "2026-07-18T23:00:00Z"
-    // },
+    {
+        title: "⚽ FRA vs ENG ",
+        description: "France vs England",
+        location: "Miami",
+        start: "2026-07-18T21:00:00Z",
+        end: "2026-07-18T23:00:00Z"
+    },
 
     // Final
-    // {
-    //     title: "⚽ ",
-    //     description: "",
-    //     location: "",
-    //     start: "2026-07-19T19:00:00Z",
-    //     end: "2026-07-19T21:00:00Z"
-    // },
+    {
+        title: "⚽ ESP vs ARG",
+        description: "Spain vs Argentina",
+        location: "New York/New Jersey",
+        start: "2026-07-19T19:00:00Z",
+        end: "2026-07-19T21:00:00Z"
+    }
 ]
